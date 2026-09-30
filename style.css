@@ -379,3 +379,110 @@ body {
     transform: translateX(-50%) translateY(0);
     opacity: 1;
 }
+
+/* Footer Styles */
+.site-footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    margin-top: 60px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.site-footer h3, .site-footer h4 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+.site-footer h4 {
+    font-size: 16px;
+}
+.site-footer > .footer-container {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.footer-col {
+    flex: 1;
+}
+.brand-col {
+    flex: 2;
+    padding-right: 40px;
+}
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.shield-icon {
+    background: #3b82f6;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+.footer-logo h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.footer-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 25px;
+    font-weight: 500;
+}
+.badge-green { color: #10b981; }
+.badge-red { color: #ef4444; }
+
+.links-col ul, .contact-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.links-col li, .contact-col li {
+    margin-bottom: 12px;
+}
+.links-col a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.links-col a:hover {
+    color: #3b82f6;
+}
+.contact-col i {
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+}
+.hotline-list .highlight {
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+.footer-bottom {
+    border-top: 1px solid #1e293b;
+    padding: 20px 0;
+    font-size: 13px;
+}
+.footer-bottom .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
