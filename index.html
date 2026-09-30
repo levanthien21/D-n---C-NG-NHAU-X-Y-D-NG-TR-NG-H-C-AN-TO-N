@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trợ Lý Ảo AI - Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=22">
+    <link rel="stylesheet" href="style.css?v=23">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -290,14 +290,22 @@
                 const utterance = new SpeechSynthesisUtterance(text);
                 
                 utterance.lang = 'vi-VN';
-                utterance.rate = 1.0;
-                utterance.pitch = 1.1; // Slightly higher pitch for a friendly teacher voice
+                utterance.rate = 1.05; // Slightly faster for a natural flow
+                utterance.pitch = 1.3; // Higher pitch to ensure a female-like friendly tone
                 
-                // Try to find a Vietnamese voice
+                // Try to find a Vietnamese female voice
                 const voices = window.speechSynthesis.getVoices();
-                const viVoice = voices.find(v => v.lang === 'vi-VN' || v.lang === 'vi_VN');
-                if (viVoice) {
-                    utterance.voice = viVoice;
+                const viVoices = voices.filter(v => v.lang.includes('vi'));
+                
+                if (viVoices.length > 0) {
+                    // Prioritize known female/friendly voices in Chrome, Edge, Safari
+                    const preferredFemaleNames = ['HoaiMy', 'Linh', 'Google Tiếng Việt', 'Mai', 'Female'];
+                    let selectedVoice = viVoices.find(v => preferredFemaleNames.some(name => v.name.includes(name)));
+                    
+                    // Fallback to the first VN voice if specific female ones aren't found
+                    if (!selectedVoice) selectedVoice = viVoices[0];
+                    
+                    utterance.voice = selectedVoice;
                 }
                 
                 window.speechSynthesis.speak(utterance);
