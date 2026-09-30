@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Trợ Lý Ảo AI - Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=27">
+    <link rel="stylesheet" href="style.css?v=28">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 </head>
@@ -133,8 +133,28 @@
             </div>
 
             <div class="chat-card">
-                <div style="flex: 1; display: flex; flex-direction: column;">
-                    <iframe id="chat-iframe" src="https://c.retify.ai/c/331185266490226" style="width: 100%; height: 100%; border: none; border-radius: 20px;"></iframe>
+                <div class="custom-chat-container">
+                    <div class="chat-header">
+                        <h3><i class="fas fa-robot"></i> Trò chuyện cùng Cô Tổng phụ trách</h3>
+                    </div>
+                    <div class="chat-history" id="chat-history">
+                        <div class="chat-message bot-message">
+                            <div class="message-content">Chào em! Hôm nay em cảm thấy thế nào? Có chuyện gì vui hay buồn muốn kể cho cô nghe không?</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <div class="mic-status" id="mic-status" style="display: none;">Đang nghe...</div>
+                        <div class="input-wrapper">
+                            <input type="text" id="chat-input" placeholder="Gõ tin nhắn hoặc bấm Micro để nói..." autocomplete="off" onkeypress="handleEnter(event)">
+                            <button id="btn-mic" class="btn-mic" onclick="toggleVoiceRecording()" title="Bấm để nói">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button id="btn-send" class="btn-send" onclick="sendChatMessage()">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -341,6 +361,167 @@
             window.speechSynthesis.onvoiceschanged = function() {
                 window.speechSynthesis.getVoices();
             };
+        }
+
+        // ==========================================
+        // CUSTOM CHAT UI & GEMINI API INTEGRATION
+        // ==========================================
+        const GEMINI_API_KEY = ""; // MÃ API KEY ĐƯỢC ĐIỀN VÀO ĐÂY
+
+        let chatHistory = []; // Lưu trữ ngữ cảnh hội thoại
+        
+        // Cấu hình System Prompt (Kịch bản của AI)
+        const SYSTEM_PROMPT = `Bạn là Cô Tổng phụ trách Đội AI của trường Tiểu học Hồng Phong. 
+Quy tắc bắt buộc:
+1. Luôn xưng là "Cô" và gọi người chat là "em".
+2. Trả lời cực kỳ ngắn gọn, dễ hiểu, thân thiện, mang tính giáo dục, không phán xét.
+3. Vì học sinh là trẻ em (cấp 1), tuyệt đối không dùng từ ngữ phức tạp, không dài dòng. 
+4. Hãy thể hiện sự đồng cảm, an ủi nếu học sinh buồn.`;
+
+        function handleEnter(e) {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        function appendMessage(text, isBot) {
+            const historyDiv = document.getElementById('chat-history');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-message ${isBot ? 'bot-message' : 'user-message'}`;
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = text;
+            
+            msgDiv.appendChild(contentDiv);
+            historyDiv.appendChild(msgDiv);
+            historyDiv.scrollTop = historyDiv.scrollHeight;
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            // Hiển thị tin nhắn người dùng
+            appendMessage(text, false);
+            input.value = '';
+            
+            // Nếu chưa có API Key
+            if (!GEMINI_API_KEY) {
+                setTimeout(() => {
+                    appendMessage("Cô đang được bảo trì. Thầy cô quản trị viên cần điền mã Gemini API Key vào hệ thống để cô có thể nói chuyện với em nhé!", true);
+                }, 1000);
+                return;
+            }
+
+            // Lưu vào lịch sử (Dạng Gemini API)
+            chatHistory.push({
+                "role": "user",
+                "parts": [{ "text": text }]
+            });
+
+            // Gửi API
+            appendMessage("...", true); // Loading indicator
+            const historyDiv = document.getElementById('chat-history');
+            const loadingMsg = historyDiv.lastChild;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        "system_instruction": {
+                            "parts": { "text": SYSTEM_PROMPT }
+                        },
+                        "contents": chatHistory
+                    })
+                });
+
+                const data = await response.json();
+                const botReply = data.candidates[0].content.parts[0].text;
+                
+                // Lưu vào lịch sử
+                chatHistory.push({
+                    "role": "model",
+                    "parts": [{ "text": botReply }]
+                });
+
+                // Cập nhật giao diện
+                loadingMsg.querySelector('.message-content').textContent = botReply;
+                
+                // Tự động đọc câu trả lời
+                if (typeof responsiveVoice !== 'undefined') {
+                    responsiveVoice.cancel();
+                    responsiveVoice.speak(botReply, "Vietnamese Female", { pitch: 1.1, rate: 1.05 });
+                }
+
+            } catch (error) {
+                console.error(error);
+                loadingMsg.querySelector('.message-content').textContent = "Xin lỗi em, đường truyền của cô đang gặp chút vấn đề. Em thử lại sau nhé!";
+            }
+        }
+
+        // ==========================================
+        // VOICE RECORDING (Web Speech API)
+        // ==========================================
+        let recognition = null;
+        let isRecording = false;
+
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.lang = 'vi-VN';
+            recognition.continuous = false;
+            recognition.interimResults = false;
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById('chat-input').value = transcript;
+                stopRecording();
+                // Tự động gửi sau khi nhận diện xong
+                setTimeout(sendChatMessage, 500); 
+            };
+
+            recognition.onerror = function(event) {
+                console.error("Speech recognition error", event.error);
+                stopRecording();
+                if (event.error === 'not-allowed') {
+                    alert("Vui lòng cấp quyền sử dụng Micro cho trình duyệt để cô nghe được em nói nhé!");
+                }
+            };
+            
+            recognition.onend = function() {
+                stopRecording();
+            };
+        }
+
+        function toggleVoiceRecording() {
+            if (!recognition) {
+                alert("Rất tiếc, trình duyệt của em chưa hỗ trợ tính năng nhận diện giọng nói. Hãy dùng Google Chrome hoặc Safari nhé!");
+                return;
+            }
+
+            if (isRecording) {
+                recognition.stop();
+            } else {
+                try {
+                    recognition.start();
+                    isRecording = true;
+                    document.getElementById('btn-mic').classList.add('recording');
+                    document.getElementById('mic-status').style.display = 'block';
+                    // Tắt nhạc/giọng đọc nếu đang phát
+                    if (typeof responsiveVoice !== 'undefined') responsiveVoice.cancel();
+                } catch (e) {
+                    console.error(e);
+                }
+            }
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            document.getElementById('btn-mic').classList.remove('recording');
+            document.getElementById('mic-status').style.display = 'none';
         }
     </script>
     <div class="toast-notification" id="toast"></div>
