@@ -464,11 +464,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background: #ffffff;
+    background: linear-gradient(145deg, #f8fafc 0%, #e0e7ff 100%);
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
-    border: 1px solid var(--border-color);
+    border: 1px solid #c7d2fe;
 }
 
 .avatar-section {
