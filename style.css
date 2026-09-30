@@ -81,30 +81,56 @@ body {
     font-weight: 600;
     gap: 6px;
     transition: transform 0.2s ease, color 0.2s;
-}
-.nav-item:hover {
-    transform: translateY(-2px);
-    color: var(--accent-blue);
+    padding: 4px;
 }
 .nav-icon {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    color: var(--text-muted);
+    border-radius: 14px;
     font-size: 18px;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
+    background-color: #f1f5f9;
+    color: #64748b;
 }
-.nav-item.active {
-    color: var(--accent-blue);
-}
-.nav-item.active .nav-icon {
-    background-color: var(--accent-blue);
-    color: #ffffff;
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-}
+
+/* 1: Trang Chủ (Blue) */
+.nav-item:nth-child(1) .nav-icon { background-color: #eff6ff; color: #3b82f6; }
+.nav-item:nth-child(1):hover { color: #3b82f6; transform: translateY(-4px); }
+.nav-item:nth-child(1).active { color: #3b82f6; }
+.nav-item:nth-child(1).active .nav-icon { background-color: #3b82f6; color: #ffffff; box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3); }
+
+/* 2: Trợ Lý Ảo AI (Indigo) */
+.nav-item:nth-child(2) .nav-icon { background-color: #eef2ff; color: #6366f1; }
+.nav-item:nth-child(2):hover { color: #6366f1; transform: translateY(-4px); }
+.nav-item:nth-child(2).active { color: #6366f1; }
+.nav-item:nth-child(2).active .nav-icon { background-color: #6366f1; color: #ffffff; box-shadow: 0 6px 12px rgba(99, 102, 241, 0.3); }
+
+/* 3: Kho Học Liệu (Emerald) */
+.nav-item:nth-child(3) .nav-icon { background-color: #ecfdf5; color: #10b981; }
+.nav-item:nth-child(3):hover { color: #10b981; transform: translateY(-4px); }
+.nav-item:nth-child(3).active { color: #10b981; }
+.nav-item:nth-child(3).active .nav-icon { background-color: #10b981; color: #ffffff; box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3); }
+
+/* 4: Tình Huống Kỹ Năng (Amber) */
+.nav-item:nth-child(4) .nav-icon { background-color: #fffbeb; color: #f59e0b; }
+.nav-item:nth-child(4):hover { color: #f59e0b; transform: translateY(-4px); }
+.nav-item:nth-child(4).active { color: #f59e0b; }
+.nav-item:nth-child(4).active .nav-icon { background-color: #f59e0b; color: #ffffff; box-shadow: 0 6px 12px rgba(245, 158, 11, 0.3); }
+
+/* 5: Ngân Hàng Câu Hỏi (Cyan) */
+.nav-item:nth-child(5) .nav-icon { background-color: #ecfeff; color: #06b6d4; }
+.nav-item:nth-child(5):hover { color: #06b6d4; transform: translateY(-4px); }
+.nav-item:nth-child(5).active { color: #06b6d4; }
+.nav-item:nth-child(5).active .nav-icon { background-color: #06b6d4; color: #ffffff; box-shadow: 0 6px 12px rgba(6, 182, 212, 0.3); }
+
+/* 6: Khu Vực Giáo Viên (Rose) */
+.nav-item:nth-child(6) .nav-icon { background-color: #fff1f2; color: #f43f5e; }
+.nav-item:nth-child(6):hover { color: #f43f5e; transform: translateY(-4px); }
+.nav-item:nth-child(6).active { color: #f43f5e; }
+.nav-item:nth-child(6).active .nav-icon { background-color: #f43f5e; color: #ffffff; box-shadow: 0 6px 12px rgba(244, 63, 94, 0.3); }
 
 .header-right {
     display: flex;
