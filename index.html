@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Trợ Lý Ảo AI - Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=28">
+    <link rel="stylesheet" href="style.css?v=29">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 </head>
@@ -171,6 +171,7 @@
                 <div class="footer-badges">
                     <span class="badge-green"><i class="fas fa-lock"></i> Bảo mật danh tính</span>
                     <span class="badge-red"><i class="fas fa-heart"></i> Vì một thế hệ học đường hạnh phúc</span>
+                    <a href="#" onclick="updateApiKey(); return false;" class="badge-admin" style="background: #cbd5e1; color: #475569; text-decoration: none; padding: 6px 12px; border-radius: 20px; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; font-weight: 700;"><i class="fas fa-cog"></i> Quản trị viên</a>
                 </div>
             </div>
             
@@ -366,7 +367,17 @@
         // ==========================================
         // CUSTOM CHAT UI & GEMINI API INTEGRATION
         // ==========================================
-        const GEMINI_API_KEY = ""; // MÃ API KEY ĐƯỢC ĐIỀN VÀO ĐÂY
+        let GEMINI_API_KEY = localStorage.getItem("GEMINI_API_KEY") || ""; 
+
+        // Hàm cập nhật API Key dành cho Quản trị viên
+        function updateApiKey() {
+            const key = prompt("Nhập mã Gemini API Key (Chỉ dành cho Quản trị viên):", GEMINI_API_KEY);
+            if (key) {
+                GEMINI_API_KEY = key.trim();
+                localStorage.setItem("GEMINI_API_KEY", GEMINI_API_KEY);
+                alert("Đã lưu API Key thành công!");
+            }
+        }
 
         let chatHistory = []; // Lưu trữ ngữ cảnh hội thoại
         
