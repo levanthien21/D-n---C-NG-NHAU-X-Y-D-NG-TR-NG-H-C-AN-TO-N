@@ -722,11 +722,12 @@ body {
 
 /* Safety Box */
 .safety-box {
-    background: #eff6ff;
+    background: #f8fafc;
     border: 1px solid #bfdbfe;
-    border-radius: 12px;
-    padding: 12px;
-    margin-top: 10px;
+    border-radius: 16px;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
     text-align: left;
     box-shadow: 0 4px 10px rgba(59, 130, 246, 0.05);
 }
