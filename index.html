@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trợ Lý Ảo AI - Trường Học An Toàn</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-area">
+            <!-- Bạn có thể thay thế bằng logo thật -->
+            <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="Logo" class="logo">
+            <div class="title-text">
+                <span class="red-text">LIÊN ĐỘI TRƯỜNG TIỂU HỌC HỒNG PHONG</span><br>
+                <span class="main-title">CÙNG NHAU XÂY DỰNG TRƯỜNG HỌC AN TOÀN</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li class="active"><a href="#"><i class="fas fa-robot"></i> Trợ Lý Ảo AI</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> Kho Học Liệu</a></li>
+                <li><a href="#"><i class="fas fa-compass"></i> Tình Huống Kỹ Năng</a></li>
+                <li><a href="#"><i class="fas fa-question-circle"></i> Ngân Hàng Câu Hỏi</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Khu Vực Giáo Viên</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="hotline"><i class="fas fa-phone-alt"></i> Hotline 111</button>
+            <div class="user-profile">Học Sinh THPT <i class="fas fa-chevron-down"></i></div>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <div class="banner-content">
+            <div class="banner-icon"><i class="fas fa-heartbeat"></i></div>
+            <div>
+                <h2>Trợ Lý Ảo AI – Cô Tổng phụ trách AI <span class="badge">AI 3D Tương Tác</span></h2>
+                <p>Tư vấn ứng xử an toàn • Lắng nghe không phán xét • Kết nối Thầy Cô & Tổng đài Quốc gia 111</p>
+            </div>
+        </div>
+        <button class="btn-warning"><i class="fas fa-shield-alt"></i> Gửi Yêu Cầu Hỗ Trợ Riêng</button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Left Panel: Avatar & Info -->
+        <aside class="left-panel">
+            <div class="avatar-card">
+                <div class="avatar-image-container">
+                    <!-- Ảnh 3D Avatar (Thay src bằng ảnh thật) -->
+                    <img src="https://via.placeholder.com/300x300.png?text=3D+Avatar" alt="Avatar" class="main-avatar">
+                </div>
+                <div class="status-badge"><span class="dot"></span> Cô Tổng phụ trách AI • Tiểu Học Hồng Phong</div>
+                
+                <div class="view-buttons">
+                    <button class="active">Mặt trước</button>
+                    <button>Sau lưng</button>
+                    <button>Toàn thân</button>
+                </div>
+
+                <div class="quote-box">
+                    <h4><i class="fas fa-heart"></i> LIÊN ĐỘI TIỂU HỌC HỒNG PHONG</h4>
+                    <p class="vi-quote">"Chào em! Cô Tổng phụ trách AI luôn lắng nghe, tôn trọng và đồng hành cùng em."</p>
+                    <p class="en-quote">"Hello! AI Pioneer Counselor is always here to listen, respect, and accompany you."</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Panel: Chat Interface -->
+        <section class="right-panel">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="chat-title">
+                        <h3>Hội thoại song ngữ với Cô Tổng phụ trách AI • Tiểu học Hồng Phong</h3>
+                        <p>Bilingual AI Counseling: Vietnamese - English</p>
+                    </div>
+                    <button class="btn-refresh" id="refresh-chat"><i class="fas fa-redo"></i> Làm mới hội thoại</button>
+                </div>
+
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Tin nhắn chào mừng của AI -->
+                    <div class="message ai-message">
+                        <img src="https://via.placeholder.com/40.png?text=AI" alt="AI" class="msg-avatar">
+                        <div class="message-content">
+                            <div class="msg-header">
+                                <span class="sender-name">Cô Tổng phụ trách AI • Tiểu Học Hồng Phong</span>
+                                <span class="msg-time">09:05</span>
+                            </div>
+                            <div class="msg-bubble">
+                                <p>Chào em! Cô là Cô Tổng phụ trách AI – Liên đội Trường Tiểu học Hồng Phong, kiêm Trợ lý ảo tư vấn tâm lý học đường AI. Cô luôn ở đây để lắng nghe em trong một không gian an toàn, tôn trọng và không phán xét. Hôm nay em đang có điều gì băn khoăn hay cần cô đồng hành không?</p>
+                                
+                                <div class="translation-box">
+                                    <p class="trans-label"><i class="fas fa-language"></i> ENGLISH TRANSLATION:</p>
+                                    <p class="trans-text">"Hello! I am AI Pioneer Counselor of Hong Phong Primary School and your AI school counselor. I am always here to listen to you in a safe, respectful, and non-judgmental space. Do you have any concerns or need my support today?"</p>
+                                </div>
+                                
+                                <div class="msg-actions">
+                                    <button><i class="fas fa-volume-up"></i> Nghe Tiếng Việt</button>
+                                    <button><i class="fas fa-volume-up"></i> Listen in English</button>
+                                    <a href="#" class="intervention-link">Nhờ thầy cô can thiệp vụ này ></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tin nhắn mẫu của người dùng -->
+                    <div class="message user-message">
+                        <div class="message-content">
+                            <div class="msg-bubble">
+                                <p>chào cô</p>
+                            </div>
+                            <span class="msg-time-user">Em 09:05</span>
+                        </div>
+                        <img src="https://via.placeholder.com/40.png?text=U" alt="User" class="msg-avatar">
+                    </div>
+                </div>
+
+                <!-- Vùng nhập tin nhắn -->
+                <div class="chat-input-area">
+                    <input type="text" id="user-input" placeholder="Nhập tin nhắn của em ở đây...">
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
