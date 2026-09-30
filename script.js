@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         } else {
             msgDiv.innerHTML = `
-                <div class="msg-avatar"><img src="https://ui-avatars.com/api/?name=AI&background=0D8ABC&color=fff&rounded=true" alt="AI"></div>
+                <div class="msg-avatar"><img src="avatar.jpg" alt="AI"></div>
                 <div class="msg-content">
                     <div class="msg-meta">
                         <span class="msg-author">Cô Tổng phụ trách AI • Tiểu Học Hồng Phong</span>
