@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trợ Lý Ảo AI - Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=23">
+    <link rel="stylesheet" href="style.css?v=24">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -281,47 +281,62 @@
             setTimeout(() => btn.classList.remove('fa-spin'), 1000);
         }
 
-        // Speech Synthesis for Greeting
+        // Speech Synthesis for Greeting (Guaranteed Female Voice via Google TTS)
         function playGreeting() {
+            // Visual feedback
+            const btn = document.querySelector('.quote-voice');
+            const originalBg = btn.style.background;
+            btn.style.background = '#dbeafe';
+            setTimeout(() => { btn.style.background = originalBg; }, 300);
+
+            // Split text to avoid Google TTS character limits
+            const sentences = [
+                "Chào em! Cô là Cô Tổng phụ trách A I của Liên đội Trường Tiểu học Hồng Phong.",
+                "Cô luôn ở đây để lắng nghe, tôn trọng và đồng hành cùng em trong một không gian an toàn.",
+                "Hôm nay em có điều gì băn khoăn cần cô chia sẻ không?"
+            ];
+            
+            let currentIndex = 0;
+            
+            function playNext() {
+                if (currentIndex < sentences.length) {
+                    const url = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=" + encodeURIComponent(sentences[currentIndex]);
+                    const audio = new Audio(url);
+                    audio.onended = playNext;
+                    audio.play().catch(e => {
+                        console.log("Network TTS failed, falling back to local TTS");
+                        fallbackTTS(sentences.join(" "));
+                    });
+                    currentIndex++;
+                }
+            }
+            
+            playNext();
+        }
+
+        // Fallback in case offline or blocked
+        function fallbackTTS(fullText) {
             if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel(); // Stop any ongoing speech
-                
-                const text = "Chào em! Cô là Cô Tổng phụ trách AI của Liên đội Trường Tiểu học Hồng Phong. Cô luôn ở đây để lắng nghe, tôn trọng và đồng hành cùng em trong một không gian an toàn và không phán xét. Hôm nay em có điều gì băn khoăn cần cô chia sẻ không?";
-                const utterance = new SpeechSynthesisUtterance(text);
-                
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(fullText);
                 utterance.lang = 'vi-VN';
-                utterance.rate = 1.05; // Slightly faster for a natural flow
-                utterance.pitch = 1.3; // Higher pitch to ensure a female-like friendly tone
+                utterance.rate = 1.05;
+                utterance.pitch = 1.4; // Force high pitch for female sound
                 
-                // Try to find a Vietnamese female voice
                 const voices = window.speechSynthesis.getVoices();
                 const viVoices = voices.filter(v => v.lang.includes('vi'));
                 
                 if (viVoices.length > 0) {
-                    // Prioritize known female/friendly voices in Chrome, Edge, Safari
-                    const preferredFemaleNames = ['HoaiMy', 'Linh', 'Google Tiếng Việt', 'Mai', 'Female'];
-                    let selectedVoice = viVoices.find(v => preferredFemaleNames.some(name => v.name.includes(name)));
-                    
-                    // Fallback to the first VN voice if specific female ones aren't found
+                    const preferred = ['hoaimy', 'linh', 'google', 'female', 'mai'];
+                    let selectedVoice = viVoices.find(v => preferred.some(name => v.name.toLowerCase().includes(name)));
                     if (!selectedVoice) selectedVoice = viVoices[0];
-                    
                     utterance.voice = selectedVoice;
                 }
-                
                 window.speechSynthesis.speak(utterance);
-                
-                // Add a small visual feedback
-                const btn = document.querySelector('.quote-voice');
-                const originalBg = btn.style.background;
-                btn.style.background = '#dbeafe';
-                setTimeout(() => { btn.style.background = originalBg; }, 300);
-                
-            } else {
-                alert("Trình duyệt của bạn không hỗ trợ phát âm thanh. Vui lòng sử dụng Chrome hoặc Safari.");
             }
         }
         
-        // Ensure voices are loaded (especially for Chrome)
+        // Pre-load voices for fallback
         if ('speechSynthesis' in window) {
             window.speechSynthesis.onvoiceschanged = function() {
                 window.speechSynthesis.getVoices();
