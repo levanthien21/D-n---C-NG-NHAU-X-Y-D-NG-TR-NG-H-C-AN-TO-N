@@ -719,6 +719,39 @@ body {
     gap: 8px;
 }
 .outfit-list li:last-child { margin-bottom: 0; }
+
+/* Safety Box */
+.safety-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 10px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.05);
+}
+.safety-title {
+    color: #1e3a8a;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.safety-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 11.5px;
+    color: #475569;
+    line-height: 1.5;
+}
+.safety-list li {
+    margin-bottom: 6px;
+}
+.safety-list li:last-child {
+    margin-bottom: 0;
+}
 .dot {
     width: 8px;
     height: 8px;
