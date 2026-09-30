@@ -70,16 +70,16 @@
             <aside class="left-panel">
                 <div class="avatar-card">
                     <div class="avatar-wrapper">
-                        <img src="avatar.jpg" alt="Avatar">
+                        <img src="avatar_front.jpg" alt="Avatar" id="main-avatar">
                     </div>
                     <div class="status-indicator">
                         <span class="status-dot red"></span> Cô Tổng phụ trách AI • Tiểu Học Hồng Phong
                     </div>
                     
                     <div class="view-toggles">
-                        <button class="active">Mặt trước <br><small>(Huy hiệu tay áo & Logo)</small></button>
-                        <button>Sau lưng <br><small>(Tên Liên Đội)</small></button>
-                        <button>Toàn thân</button>
+                        <button class="active" onclick="changeAvatar('front', this)">Mặt trước <br><small>(Huy hiệu tay áo & Logo)</small></button>
+                        <button onclick="changeAvatar('back', this)">Sau lưng <br><small>(Tên Liên Đội)</small></button>
+                        <button onclick="changeAvatar('full', this)">Toàn thân</button>
                     </div>
 
                     <div class="quote-container">
@@ -107,5 +107,18 @@
             </main>
         </div>
     </div>
+    
+    <script>
+        function changeAvatar(view, btn) {
+            const img = document.getElementById('main-avatar');
+            if (view === 'front') img.src = 'avatar_front.jpg';
+            if (view === 'back') img.src = 'avatar_back.jpg';
+            if (view === 'full') img.src = 'avatar_full.jpg';
+            
+            const buttons = document.querySelectorAll('.view-toggles button');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+    </script>
 </body>
 </html>
