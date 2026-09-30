@@ -15,6 +15,23 @@ body {
     color: var(--text-main);
 }
 
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+@keyframes floatGentle {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
 .site-header {
     background: #ffffff;
     display: flex;
@@ -63,6 +80,11 @@ body {
     font-size: 12px;
     font-weight: 600;
     gap: 6px;
+    transition: transform 0.2s ease, color 0.2s;
+}
+.nav-item:hover {
+    transform: translateY(-2px);
+    color: var(--accent-blue);
 }
 .nav-icon {
     width: 36px;
@@ -98,6 +120,11 @@ body {
     font-weight: 700;
     font-size: 14px;
     cursor: pointer;
+    animation: pulseGlow 2s infinite;
+    transition: transform 0.2s;
+}
+.btn-hotline:hover {
+    transform: translateY(-2px);
 }
 .user-dropdown {
     background-color: var(--light-blue);
@@ -177,6 +204,11 @@ body {
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-support:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(245, 158, 11, 0.6);
 }
 
 .content-grid {
@@ -273,11 +305,17 @@ body {
     box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     margin-top: auto;
 }
+.btn-refresh-full i {
+    transition: transform 0.4s ease;
+}
 .btn-refresh-full:hover {
     background: #f8fafc;
     color: var(--accent-blue);
     border-color: #bfdbfe;
     box-shadow: 0 4px 12px rgba(37,99,235,0.1);
+}
+.btn-refresh-full:hover i {
+    transform: rotate(180deg);
 }
 .btn-refresh-full i.fa-spin {
     color: var(--accent-blue);
@@ -298,6 +336,7 @@ body {
     transition: box-shadow 0.3s ease;
     grid-column: 2;
     grid-row: 1;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 .chat-card:hover {
     box-shadow: 0 15px 50px -10px rgba(0,0,0,0.12);
@@ -469,6 +508,7 @@ body {
     padding: 20px;
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 10px 40px -10px rgba(37,99,235,0.2);
     border: 1px solid #93c5fd;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .avatar-section {
@@ -497,6 +537,10 @@ body {
     object-position: top;
     border-radius: 50%;
     background: #e0e7ff;
+    transition: transform 0.4s ease;
+}
+.avatar-circle-wrapper img:hover {
+    transform: scale(1.03);
 }
 
 .avatar-badge {
@@ -554,6 +598,7 @@ body {
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
     margin-top: 5px;
+    animation: floatGentle 4s ease-in-out infinite;
 }
 .quote-arrow {
     position: absolute;
@@ -664,6 +709,11 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pill:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 .pill.blue { background: #eff6ff; border: 1px solid #bfdbfe; color: #2563eb; }
 .pill.cyan { background: #ecfeff; border: 1px solid #a5f3fc; color: #0d9488; }
