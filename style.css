@@ -180,19 +180,28 @@ body {
 
 .content-grid {
     display: flex;
-    gap: 25px;
+    gap: 35px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .left-panel {
     flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
 }
 .avatar-card {
     background: #ffffff;
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     border: 1px solid var(--border-color);
     text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 .avatar-wrapper {
     background: #f1f5f9;
@@ -292,17 +301,20 @@ body {
 }
 
 .chat-panel {
-    flex: 1;
+    flex: 0 0 750px;
+    display: flex;
+    flex-direction: column;
 }
 .chat-card {
     background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 200px);
-    min-height: 600px;
+    height: calc(100vh - 160px);
+    min-height: 650px;
+    overflow: hidden;
 }
 .chat-header {
     padding: 20px 25px;
