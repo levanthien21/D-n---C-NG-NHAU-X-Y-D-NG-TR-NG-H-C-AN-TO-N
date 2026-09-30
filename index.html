@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Trợ Lý Ảo AI - Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=29">
+    <link rel="stylesheet" href="style.css?v=30">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 </head>
@@ -450,6 +450,15 @@ Quy tắc bắt buộc:
                 });
 
                 const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error("Lỗi API: " + data.error.message);
+                }
+
+                if (!data.candidates || data.candidates.length === 0) {
+                    throw new Error("API không trả về câu trả lời hợp lệ.");
+                }
+
                 const botReply = data.candidates[0].content.parts[0].text;
                 
                 // Lưu vào lịch sử
@@ -469,7 +478,9 @@ Quy tắc bắt buộc:
 
             } catch (error) {
                 console.error(error);
-                loadingMsg.querySelector('.message-content').textContent = "Xin lỗi em, đường truyền của cô đang gặp chút vấn đề. Em thử lại sau nhé!";
+                loadingMsg.querySelector('.message-content').textContent = "Xin lỗi em, cô không thể trả lời lúc này. Lỗi kỹ thuật: " + error.message;
+                // Nếu lỗi API, xóa tin nhắn cuối cùng khỏi lịch sử để không bị kẹt
+                chatHistory.pop();
             }
         }
 
