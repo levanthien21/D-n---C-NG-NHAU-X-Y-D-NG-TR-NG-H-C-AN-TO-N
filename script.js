@@ -1,21 +1,18 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
-    const chatMessages = document.getElementById('chat-messages');
-    const userInput = document.getElementById('user-input');
-    const sendBtn = document.getElementById('send-btn');
-    const refreshBtn = document.getElementById('refresh-chat');
+    const chatBody = document.getElementById('chat-body');
+    const chatInput = document.getElementById('chat-input');
+    const btnSend = document.getElementById('btn-send');
+    const btnRefresh = document.getElementById('btn-refresh');
 
     function getCurrentTime() {
         const now = new Date();
         return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
     }
 
-    // Cuộn xuống cuối khung chat
     function scrollToBottom() {
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    // Thêm tin nhắn vào khung chat
     function addMessage(text, isUser = true) {
         if (!text.trim()) return;
 
@@ -25,73 +22,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isUser) {
             msgDiv.innerHTML = `
-                <div class="message-content">
-                    <div class="msg-bubble">
-                        <p>${text}</p>
+                <div class="msg-content">
+                    <div class="msg-bubble user-bubble">
+                        <div class="user-meta">Em ${time}</div>
+                        <div class="user-text">${text}</div>
                     </div>
-                    <span class="msg-time-user">Em ${time}</span>
                 </div>
-                <img src="https://via.placeholder.com/40.png?text=U" alt="User" class="msg-avatar">
+                <div class="msg-avatar"><img src="https://ui-avatars.com/api/?name=Em&background=E5E7EB&color=333&rounded=true" alt="User"></div>
             `;
         } else {
             msgDiv.innerHTML = `
-                <img src="https://via.placeholder.com/40.png?text=AI" alt="AI" class="msg-avatar">
-                <div class="message-content">
-                    <div class="msg-header">
-                        <span class="sender-name">Cô Tổng phụ trách AI • Tiểu Học Hồng Phong</span>
+                <div class="msg-avatar"><img src="https://ui-avatars.com/api/?name=AI&background=0D8ABC&color=fff&rounded=true" alt="AI"></div>
+                <div class="msg-content">
+                    <div class="msg-meta">
+                        <span class="msg-author">Cô Tổng phụ trách AI • Tiểu Học Hồng Phong</span>
                         <span class="msg-time">${time}</span>
                     </div>
-                    <div class="msg-bubble">
+                    <div class="msg-bubble ai-bubble">
                         <p>${text}</p>
-                        <!-- Các nút phụ trợ có thể thêm động ở đây nếu cần -->
                     </div>
                 </div>
             `;
         }
 
-        chatMessages.appendChild(msgDiv);
+        chatBody.appendChild(msgDiv);
         scrollToBottom();
     }
 
-    // Xử lý gửi tin nhắn
     function handleSend() {
-        const text = userInput.value;
+        const text = chatInput.value;
         if (!text.trim()) return;
 
-        // 1. Hiển thị tin nhắn người dùng
+        // User message
         addMessage(text, true);
-        userInput.value = '';
+        chatInput.value = '';
         
-        // 2. Chỗ này là nơi bạn sẽ GỌI API AI CỦA BẠN
-        // Ví dụ: fetch('url_api_cua_ban', { method: 'POST', body: JSON.stringify({ message: text }) })
-        //          .then(res => res.json())
-        //          .then(data => addMessage(data.reply, false));
-        
-        // Mô phỏng AI trả lời sau 1 giây (để test UI)
+        // AI Response simulation
         setTimeout(() => {
-            const aiReply = "Chào em, cô đã nhận được tin nhắn: '" + text + "'. Đây là phản hồi mẫu vì hệ thống AI thật chưa được tích hợp. Em có thể thay thế phần này bằng code gọi API của mình nhé!";
+            const aiReply = "Cô đã nhận được: '" + text + "'. Bạn hãy tích hợp API để xử lý tiếp nhé!";
             addMessage(aiReply, false);
         }, 1000);
     }
 
-    sendBtn.addEventListener('click', handleSend);
+    btnSend.addEventListener('click', handleSend);
 
-    userInput.addEventListener('keypress', (e) => {
+    chatInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             handleSend();
         }
     });
 
-    // Làm mới hội thoại (Xóa các tin nhắn cũ, giữ lại tin nhắn chào mừng đầu tiên)
-    refreshBtn.addEventListener('click', () => {
-        const messages = chatMessages.querySelectorAll('.message');
-        // Bắt đầu từ index 1 để giữ lại tin nhắn đầu tiên (chào mừng)
+    btnRefresh.addEventListener('click', () => {
+        const messages = chatBody.querySelectorAll('.message');
         for (let i = 1; i < messages.length; i++) {
             messages[i].remove();
         }
         scrollToBottom();
     });
     
-    // Khởi tạo cuộn xuống cuối
     scrollToBottom();
 });
