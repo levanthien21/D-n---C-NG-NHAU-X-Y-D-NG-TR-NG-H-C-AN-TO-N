@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Trợ Lý Ảo AI - Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=24">
+    <link rel="stylesheet" href="style.css?v=25">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -284,7 +284,7 @@
             setTimeout(() => btn.classList.remove('fa-spin'), 1000);
         }
 
-        // Speech Synthesis for Greeting (Guaranteed Female Voice via Google TTS)
+        // Speech Synthesis for Greeting (Guaranteed Female Voice via Google TTS gtx endpoint)
         function playGreeting() {
             // Visual feedback
             const btn = document.querySelector('.quote-voice');
@@ -294,7 +294,7 @@
 
             // Split text to avoid Google TTS character limits
             const sentences = [
-                "Chào em! Cô là Cô Tổng phụ trách A I của Liên đội Trường Tiểu học Hồng Phong.",
+                "Chào em! Cô là Cô Tổng phụ trách AI của Liên đội Trường Tiểu học Hồng Phong.",
                 "Cô luôn ở đây để lắng nghe, tôn trọng và đồng hành cùng em trong một không gian an toàn.",
                 "Hôm nay em có điều gì băn khoăn cần cô chia sẻ không?"
             ];
@@ -303,11 +303,12 @@
             
             function playNext() {
                 if (currentIndex < sentences.length) {
-                    const url = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=" + encodeURIComponent(sentences[currentIndex]);
+                    // Using translate.googleapis.com with client=gtx completely avoids CORS/403 blocks!
+                    const url = "https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=vi&q=" + encodeURIComponent(sentences[currentIndex]);
                     const audio = new Audio(url);
                     audio.onended = playNext;
                     audio.play().catch(e => {
-                        console.log("Network TTS failed, falling back to local TTS");
+                        console.log("Network TTS failed, falling back to local TTS", e);
                         fallbackTTS(sentences.join(" "));
                     });
                     currentIndex++;
@@ -317,21 +318,27 @@
             playNext();
         }
 
-        // Fallback in case offline or blocked
+        // Fallback in case offline
         function fallbackTTS(fullText) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
                 const utterance = new SpeechSynthesisUtterance(fullText);
                 utterance.lang = 'vi-VN';
                 utterance.rate = 1.05;
-                utterance.pitch = 1.4; // Force high pitch for female sound
+                utterance.pitch = 1.8; // Extremely high pitch to force a female-like sound if male is the only option
                 
                 const voices = window.speechSynthesis.getVoices();
                 const viVoices = voices.filter(v => v.lang.includes('vi'));
                 
                 if (viVoices.length > 0) {
-                    const preferred = ['hoaimy', 'linh', 'google', 'female', 'mai'];
-                    let selectedVoice = viVoices.find(v => preferred.some(name => v.name.toLowerCase().includes(name)));
+                    const preferred = ['hoaimy', 'linh', 'google', 'female', 'mai', 'trang', 'thu'];
+                    const exclude = ['an', 'hung', 'nam', 'male']; // Prevent explicitly male names if possible
+                    
+                    let selectedVoice = viVoices.find(v => {
+                        let n = v.name.toLowerCase();
+                        return preferred.some(p => n.includes(p)) && !exclude.some(e => n.includes(e));
+                    });
+                    
                     if (!selectedVoice) selectedVoice = viVoices[0];
                     utterance.voice = selectedVoice;
                 }
