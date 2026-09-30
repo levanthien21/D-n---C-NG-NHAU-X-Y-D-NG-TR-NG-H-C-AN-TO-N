@@ -82,6 +82,10 @@
                         <button onclick="activate360(this)">Toàn thân <br><small>(Vuốt để xoay)</small></button>
                     </div>
 
+                    <button class="btn-refresh-full" id="btn-refresh" onclick="refreshChat()">
+                        <i class="fas fa-redo-alt"></i> Làm mới hội thoại AI
+                    </button>
+
                     <div class="quote-container">
                         <h4><i class="far fa-heart"></i> LIÊN ĐỘI TIỂU HỌC HỒNG PHONG</h4>
                         <p class="quote-vi">"Chào em! Cô Tổng phụ trách AI luôn lắng nghe, tôn trọng và đồng hành cùng em."</p>
@@ -92,16 +96,8 @@
 
             <main class="chat-panel">
                 <div class="chat-card">
-                    <div class="chat-header">
-                        <div class="chat-header-title">
-                            <h3><span class="status-dot green"></span> Hội thoại song ngữ với Cô Tổng phụ trách AI • Tiểu học Hồng Phong</h3>
-                            <p class="subtitle">Bilingual AI Counseling: Vietnamese - English</p>
-                        </div>
-                        <button class="btn-refresh" id="btn-refresh" onclick="refreshChat()"><i class="fas fa-redo-alt"></i> Làm mới hội thoại</button>
-                    </div>
-                    
                     <div style="flex: 1; display: flex; flex-direction: column;">
-                        <iframe id="chat-iframe" src="https://c.retify.ai/c/331185266490226" style="width: 100%; height: 100%; border: none; border-radius: 0 0 16px 16px;"></iframe>
+                        <iframe id="chat-iframe" src="https://c.retify.ai/c/331185266490226" style="width: 100%; height: 100%; border: none; border-radius: 20px;"></iframe>
                     </div>
                 </div>
             </main>
