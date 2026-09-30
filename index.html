@@ -101,15 +101,53 @@
                         <button class="btn-refresh" id="btn-refresh"><i class="fas fa-redo-alt"></i> Làm mới hội thoại</button>
                     </div>
                     
-                    <div style="flex: 1; display: flex; justify-content: center; align-items: center; min-height: 700px; background: #f9fafb; border-radius: 0 0 16px 16px;"><iframe src="https://chatbox-embed-ui.botbanhang.vn?page_id=331185266490226" style="width: 416px; height: 674px; border: none; overflow: hidden;"></iframe></div>
+                    <div class="chat-body" id="chat-body">
+                        <!-- AI Welcome Message -->
+                        <div class="message ai-message">
+                            <div class="msg-avatar"><img src="avatar.jpg" alt="AI"></div>
+                            <div class="msg-content">
+                                <div class="msg-meta">
+                                    <span class="msg-author">Cô Tổng phụ trách AI • Tiểu Học Hồng Phong</span>
+                                    <span class="msg-time">09:05</span>
+                                </div>
+                                <div class="msg-bubble ai-bubble">
+                                    <p>Chào em! Cô là Cô Tổng phụ trách AI – Liên đội Trường Tiểu học Hồng Phong, kiêm Trợ lý ảo tư vấn tâm lý học đường AI. Cô luôn ở đây để lắng nghe em trong một không gian an toàn, tôn trọng và không phán xét. Hôm nay em đang có điều gì băn khoăn hay cần cô đồng hành không?</p>
+                                    
+                                    <div class="translation-block">
+                                        <div class="trans-title"><i class="fas fa-language"></i> ENGLISH TRANSLATION:</div>
+                                        <div class="trans-text">"Hello! I am AI Pioneer Counselor of Hong Phong Primary School and your AI school counselor. I am always here to listen to you in a safe, respectful, and non-judgmental space. Do you have any concerns or need my support today?"</div>
+                                    </div>
+                                    
+                                    <div class="msg-actions">
+                                        <button class="btn-voice"><i class="fas fa-volume-up"></i> Nghe Tiếng Việt</button>
+                                        <button class="btn-voice"><i class="fas fa-volume-up"></i> Listen in English</button>
+                                        <a href="#" class="link-intervention">Nhờ thầy cô can thiệp vụ này ></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sample User Message -->
+                        <div class="message user-message">
+                            <div class="msg-content">
+                                <div class="msg-bubble user-bubble">
+                                    <div class="user-meta">Em 09:05</div>
+                                    <div class="user-text">chào</div>
+                                </div>
+                            </div>
+                            <div class="msg-avatar"><img src="https://ui-avatars.com/api/?name=Em&background=E5E7EB&color=333&rounded=true" alt="User"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-footer">
+                        <input type="text" id="chat-input" placeholder="Nhập tin nhắn của em ở đây...">
+                        <button class="btn-send" id="btn-send"><i class="fas fa-paper-plane"></i></button>
+                    </div>
                 </div>
             </main>
         </div>
     </div>
     
     <script src="script.js"></script>
-    
 </body>
 </html>
-
-
