@@ -185,12 +185,19 @@
         });
         window.addEventListener('touchend', () => { isDragging = false; });
 
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
         function refreshChat() {
             // Copy /reset to clipboard
             navigator.clipboard.writeText('/reset').then(() => {
-                alert('Đã copy lệnh "/reset".\n\nDo lớp bảo mật của trình duyệt, hệ thống không thể tự động điền chữ vào khung chat của Retion. Bạn vui lòng Dán (Ctrl + V) lệnh này vào ô chat và ấn Gửi để làm mới bộ nhớ của AI nhé!');
+                showToast('✅ Đã copy lệnh! Hãy ấn vào ô chat, Dán (Ctrl + V) và Gửi đi nhé.');
             }).catch(err => {
-                alert('Vui lòng tự gõ lệnh "/reset" vào ô chat và ấn Gửi để làm mới bộ nhớ của AI nhé!');
+                showToast('❌ Vui lòng tự gõ lệnh "/reset" vào ô chat và Gửi.');
             });
             
             // Visual feedback
@@ -199,5 +206,6 @@
             setTimeout(() => btn.classList.remove('fa-spin'), 1000);
         }
     </script>
+    <div class="toast-notification" id="toast"></div>
 </body>
 </html>
