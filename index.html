@@ -7,8 +7,9 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Trợ Lý Ảo AI - Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=25">
+    <link rel="stylesheet" href="style.css?v=27">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -284,7 +285,7 @@
             setTimeout(() => btn.classList.remove('fa-spin'), 1000);
         }
 
-        // Speech Synthesis for Greeting (Guaranteed Female Voice via Google TTS gtx endpoint)
+        // Speech Synthesis for Greeting using ResponsiveVoice (Guaranteed Female Voice)
         function playGreeting() {
             // Visual feedback
             const btn = document.querySelector('.quote-voice');
@@ -292,30 +293,19 @@
             btn.style.background = '#dbeafe';
             setTimeout(() => { btn.style.background = originalBg; }, 300);
 
-            // Split text to avoid Google TTS character limits
-            const sentences = [
-                "Chào em! Cô là Cô Tổng phụ trách AI của Liên đội Trường Tiểu học Hồng Phong.",
-                "Cô luôn ở đây để lắng nghe, tôn trọng và đồng hành cùng em trong một không gian an toàn.",
-                "Hôm nay em có điều gì băn khoăn cần cô chia sẻ không?"
-            ];
+            const text = "Chào em! Cô là Cô Tổng phụ trách AI của Liên đội Trường Tiểu học Hồng Phong. Cô luôn ở đây để lắng nghe, tôn trọng và đồng hành cùng em trong một không gian an toàn và không phán xét. Hôm nay em có điều gì băn khoăn cần cô chia sẻ không?";
             
-            let currentIndex = 0;
-            
-            function playNext() {
-                if (currentIndex < sentences.length) {
-                    // Using translate.googleapis.com with client=gtx completely avoids CORS/403 blocks!
-                    const url = "https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=vi&q=" + encodeURIComponent(sentences[currentIndex]);
-                    const audio = new Audio(url);
-                    audio.onended = playNext;
-                    audio.play().catch(e => {
-                        console.log("Network TTS failed, falling back to local TTS", e);
-                        fallbackTTS(sentences.join(" "));
-                    });
-                    currentIndex++;
-                }
+            if (typeof responsiveVoice !== 'undefined') {
+                responsiveVoice.cancel();
+                responsiveVoice.speak(text, "Vietnamese Female", {
+                    pitch: 1.1,
+                    rate: 1.05,
+                    volume: 1
+                });
+            } else {
+                // Absolute fallback
+                fallbackTTS(text);
             }
-            
-            playNext();
         }
 
         // Fallback in case offline
@@ -325,14 +315,14 @@
                 const utterance = new SpeechSynthesisUtterance(fullText);
                 utterance.lang = 'vi-VN';
                 utterance.rate = 1.05;
-                utterance.pitch = 1.8; // Extremely high pitch to force a female-like sound if male is the only option
+                utterance.pitch = 1.8;
                 
                 const voices = window.speechSynthesis.getVoices();
                 const viVoices = voices.filter(v => v.lang.includes('vi'));
                 
                 if (viVoices.length > 0) {
                     const preferred = ['hoaimy', 'linh', 'google', 'female', 'mai', 'trang', 'thu'];
-                    const exclude = ['an', 'hung', 'nam', 'male']; // Prevent explicitly male names if possible
+                    const exclude = ['an', 'hung', 'nam', 'male'];
                     
                     let selectedVoice = viVoices.find(v => {
                         let n = v.name.toLowerCase();
