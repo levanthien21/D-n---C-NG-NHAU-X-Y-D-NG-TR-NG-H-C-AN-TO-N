@@ -502,3 +502,121 @@ body {
     .left-panel { flex: 0 0 320px; }
     .avatar-wrapper { width: 240px; height: 240px; }
 }
+
+/* Intro Panel Styles */
+.intro-panel { flex: 1; }
+.intro-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    overflow: hidden;
+}
+.intro-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+    background: #f8fafc;
+}
+.intro-header h3 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+}
+.intro-header .subtitle {
+    margin: 0 0 0 18px;
+    font-size: 13px;
+    color: #10b981;
+    font-weight: 600;
+}
+.intro-body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    background: #f9fafb;
+}
+.welcome-message {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(37,99,235,0.05);
+    border: 1px solid var(--light-blue);
+}
+.welcome-message h2 {
+    color: var(--primary-blue);
+    margin-top: 0;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.welcome-message p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-main);
+    margin-bottom: 25px;
+}
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px 0;
+}
+.feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+.feature-list li i {
+    color: var(--accent-blue);
+    font-size: 16px;
+    margin-top: 3px;
+    background: var(--light-blue);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--light-blue) 0%, #dbeafe 100%);
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.cta-icon {
+    font-size: 45px;
+    color: var(--accent-blue);
+}
+.cta-text h4 {
+    margin: 0 0 8px 0;
+    color: var(--accent-blue);
+    font-size: 18px;
+    font-weight: 700;
+}
+.cta-text p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--primary-blue);
+    font-weight: 600;
+    line-height: 1.4;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+.pulse-anim {
+    animation: pulse 2s infinite;
+}
