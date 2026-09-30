@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trợ Lý Ảo AI - Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=21">
+    <link rel="stylesheet" href="style.css?v=22">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -88,7 +88,9 @@
                     <h4><i class="far fa-heart"></i> LIÊN ĐỘI TIỂU HỌC HỒNG PHONG</h4>
                     <p class="quote-vi">"Chào em! Cô Tổng phụ trách AI luôn lắng nghe, tôn trọng và đồng hành cùng em."</p>
                     <p class="quote-en">"Hello! AI Pioneer Counselor is always here to listen, respect, and accompany you."</p>
-                    <p class="quote-voice"><i class="fas fa-volume-up"></i> Trò chuyện song ngữ TV - TA</p>
+                    <p class="quote-voice" onclick="playGreeting()" title="Nhấn để nghe giọng nói" style="cursor: pointer; display: inline-block; padding: 6px 12px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 20px; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-top: 5px;">
+                        <i class="fas fa-volume-up" style="color: #2563eb; margin-right: 5px;"></i> Nghe lời chào (Bật tiếng)
+                    </p>
                 </div>
 
                 <div class="ai-info-styled">
@@ -277,6 +279,45 @@
             const btn = document.querySelector('.btn-refresh i');
             btn.classList.add('fa-spin');
             setTimeout(() => btn.classList.remove('fa-spin'), 1000);
+        }
+
+        // Speech Synthesis for Greeting
+        function playGreeting() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Stop any ongoing speech
+                
+                const text = "Chào em! Cô là Cô Tổng phụ trách AI của Liên đội Trường Tiểu học Hồng Phong. Cô luôn ở đây để lắng nghe, tôn trọng và đồng hành cùng em trong một không gian an toàn và không phán xét. Hôm nay em có điều gì băn khoăn cần cô chia sẻ không?";
+                const utterance = new SpeechSynthesisUtterance(text);
+                
+                utterance.lang = 'vi-VN';
+                utterance.rate = 1.0;
+                utterance.pitch = 1.1; // Slightly higher pitch for a friendly teacher voice
+                
+                // Try to find a Vietnamese voice
+                const voices = window.speechSynthesis.getVoices();
+                const viVoice = voices.find(v => v.lang === 'vi-VN' || v.lang === 'vi_VN');
+                if (viVoice) {
+                    utterance.voice = viVoice;
+                }
+                
+                window.speechSynthesis.speak(utterance);
+                
+                // Add a small visual feedback
+                const btn = document.querySelector('.quote-voice');
+                const originalBg = btn.style.background;
+                btn.style.background = '#dbeafe';
+                setTimeout(() => { btn.style.background = originalBg; }, 300);
+                
+            } else {
+                alert("Trình duyệt của bạn không hỗ trợ phát âm thanh. Vui lòng sử dụng Chrome hoặc Safari.");
+            }
+        }
+        
+        // Ensure voices are loaded (especially for Chrome)
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = function() {
+                window.speechSynthesis.getVoices();
+            };
         }
     </script>
     <div class="toast-notification" id="toast"></div>
