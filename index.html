@@ -79,7 +79,7 @@
                     <div class="view-toggles">
                         <button class="active" onclick="changeAvatar('front', this)">Mặt trước <br><small>(Huy hiệu tay áo & Logo)</small></button>
                         <button onclick="changeAvatar('back', this)">Sau lưng <br><small>(Tên Liên Đội)</small></button>
-                        <button onclick="changeAvatar('full', this)">Toàn thân</button>
+                        <button onclick="activate360(this)">Toàn thân <br><small>(Vuốt để xoay)</small></button>
                     </div>
 
                     <div class="quote-container">
@@ -109,16 +109,81 @@
     </div>
     
     <script>
+        let is360Mode = false;
+        let currentFrame = 0;
+        let isDragging = false;
+        let startX = 0;
+
         function changeAvatar(view, btn) {
+            is360Mode = false;
             const img = document.getElementById('main-avatar');
+            img.style.cursor = 'default';
             if (view === 'front') img.src = 'avatar_front.jpg';
             if (view === 'back') img.src = 'avatar_back.jpg';
-            if (view === 'full') img.src = 'avatar_full.jpg';
             
             const buttons = document.querySelectorAll('.view-toggles button');
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         }
+
+        function activate360(btn) {
+            is360Mode = true;
+            currentFrame = 0;
+            const img = document.getElementById('main-avatar');
+            img.src = 'frame_0.jpg';
+            img.style.cursor = 'ew-resize';
+            
+            const buttons = document.querySelectorAll('.view-toggles button');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        const avatarWrapper = document.querySelector('.avatar-wrapper');
+        
+        avatarWrapper.addEventListener('mousedown', (e) => {
+            if (!is360Mode) return;
+            isDragging = true;
+            startX = e.clientX;
+            e.preventDefault(); // Prevent native image dragging
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging || !is360Mode) return;
+            
+            const deltaX = e.clientX - startX;
+            if (Math.abs(deltaX) > 25) { // Sensitivity
+                if (deltaX > 0) {
+                    currentFrame = (currentFrame - 1 + 4) % 4; // Swipe right -> rotate left
+                } else {
+                    currentFrame = (currentFrame + 1) % 4; // Swipe left -> rotate right
+                }
+                document.getElementById('main-avatar').src = 'frame_' + currentFrame + '.jpg';
+                startX = e.clientX;
+            }
+        });
+
+        window.addEventListener('mouseup', () => { isDragging = false; });
+        
+        // Touch events for mobile support
+        avatarWrapper.addEventListener('touchstart', (e) => {
+            if (!is360Mode) return;
+            isDragging = true;
+            startX = e.touches[0].clientX;
+        });
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging || !is360Mode) return;
+            const deltaX = e.touches[0].clientX - startX;
+            if (Math.abs(deltaX) > 25) {
+                if (deltaX > 0) {
+                    currentFrame = (currentFrame - 1 + 4) % 4;
+                } else {
+                    currentFrame = (currentFrame + 1) % 4;
+                }
+                document.getElementById('main-avatar').src = 'frame_' + currentFrame + '.jpg';
+                startX = e.touches[0].clientX;
+            }
+        });
+        window.addEventListener('touchend', () => { isDragging = false; });
     </script>
 </body>
 </html>
