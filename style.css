@@ -2461,7 +2461,7 @@ body {
     gap: 15px;
 }
 .standard-card .tc-image {
-    background: #e2e8f0; /* Soft background for transparent memojis */
+    background: #f8fafc;
     height: 160px; /* Smaller image for standard teachers */
 }
 .standard-card .tc-info {
@@ -2476,6 +2476,7 @@ body {
     font-size: 11px;
     padding: 4px 8px;
 }
+
 
 
 
