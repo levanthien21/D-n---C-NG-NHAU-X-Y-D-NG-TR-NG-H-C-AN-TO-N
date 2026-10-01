@@ -787,3 +787,316 @@ body {
 .pill.blue { background: #eff6ff; border: 1px solid #bfdbfe; color: #2563eb; }
 .pill.cyan { background: #ecfeff; border: 1px solid #a5f3fc; color: #0d9488; }
 .pill.yellow { background: #fefce8; border: 1px solid #fef08a; color: #b45309; }
+
+/* =========================================
+   HOME PAGE (TRANG CHỦ) CSS
+========================================= */
+.home-page .main-wrapper {
+    padding: 0;
+    max-width: 100%;
+}
+
+.home-hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    padding: 60px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 550px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    color: white;
+    z-index: 2;
+}
+
+.badge-blue {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.2);
+    color: #93c5fd;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.hero-title {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 700;
+}
+
+.hero-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e2e8f0;
+    margin-bottom: 25px;
+}
+
+.hero-message {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #eab308;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #fde047;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.btn-primary-large {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    transition: background 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary-large:hover { background: #1d4ed8; }
+
+.btn-warning-large {
+    background: #eab308;
+    color: #713f12;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    transition: background 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.btn-warning-large:hover { background: #ca8a04; }
+
+.hero-trust {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+}
+.hero-trust span { display: flex; align-items: center; gap: 5px; }
+
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+.home-ai-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    max-width: 380px;
+    width: 100%;
+}
+.home-ai-card .avatar-badge {
+    color: white;
+    background: rgba(0,0,0,0.4);
+}
+.home-ai-card h4, .home-ai-card p, .home-ai-card .ai-name, .home-ai-card .ai-school {
+    color: white !important;
+}
+
+/* 3 CORE VALUES */
+.core-values {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 50px 5%;
+    background: #f8fafc;
+    margin-top: -30px;
+    position: relative;
+    z-index: 3;
+}
+
+.value-card {
+    background: white;
+    padding: 30px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    max-width: 350px;
+    border-top: 4px solid transparent;
+}
+.value-card:nth-child(1) { border-top-color: #eab308; }
+.value-card:nth-child(2) { border-top-color: #22c55e; }
+.value-card:nth-child(3) { border-top-color: #3b82f6; }
+
+.value-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.value-icon.yellow { background: #fef08a; color: #a16207; }
+.value-icon.green { background: #bbf7d0; color: #15803d; }
+.value-icon.blue { background: #bfdbfe; color: #1d4ed8; }
+
+.value-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #1e293b;
+}
+.value-card p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* ECOSYSTEM */
+.ecosystem-section {
+    padding: 60px 5%;
+    background: white;
+    text-align: center;
+}
+.section-header { margin-bottom: 40px; }
+.badge-light {
+    display: inline-block;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.section-header h2 {
+    font-size: 32px;
+    color: #1e293b;
+    margin-bottom: 15px;
+    font-family: "Times New Roman", Times, serif;
+}
+.section-header p {
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.eco-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.eco-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
+}
+.eco-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.eco-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; margin-bottom: 20px;
+    background: #eff6ff; color: #2563eb;
+}
+.eco-icon.purple { background: #f3e8ff; color: #7e22ce; }
+.eco-icon.orange { background: #ffedd5; color: #c2410c; }
+.eco-icon.white { background: rgba(255,255,255,0.2); color: white; }
+
+.eco-card h3 {
+    font-size: 18px; color: #1e293b; margin-bottom: 12px;
+}
+.eco-card p {
+    font-size: 14px; color: #64748b; line-height: 1.5; margin-bottom: 20px; flex: 1;
+}
+.eco-link {
+    color: #2563eb; font-weight: 600; text-decoration: none; font-size: 14px; display: flex; align-items: center; justify-content: space-between;
+}
+.eco-link:hover { text-decoration: underline; }
+.eco-link.white { color: white; }
+
+.eco-card-primary {
+    background: #3730a3;
+    color: white;
+    border: none;
+}
+.eco-card-primary h3 { color: white; }
+.eco-card-primary p { color: #c7d2fe; }
+
+/* HOTLINE BANNER */
+.hotline-banner {
+    background: #1e1b4b;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    border-radius: 16px;
+    padding: 40px;
+}
+.hotline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+}
+.hl-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+.hl-left i { font-size: 40px; color: #ef4444; }
+.hl-left h2 { font-size: 24px; margin-bottom: 5px; }
+.hl-left p { color: #94a3b8; font-size: 14px; margin:0;}
+
+.hotline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+.hl-card {
+    background: #450a0a;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+}
+.hl-card.hl-dark { background: #1e293b; }
+.hl-badge {
+    display: inline-block; background: #ef4444; color: white; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-bottom: 10px;
+}
+.hl-badge.gray { background: #475569; }
+.hl-number { font-size: 24px; color: #fca5a5; margin-bottom: 10px; }
+.hl-number.yellow { color: #fde047; }
+.hl-card h4 { font-size: 14px; margin-bottom: 5px; }
+.hl-card p { font-size: 12px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.4; }
+
