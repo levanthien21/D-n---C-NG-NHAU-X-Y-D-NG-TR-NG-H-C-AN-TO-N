@@ -1386,3 +1386,31 @@ body {
 
 
 
+
+/* =========================================
+   ECOSYSTEM FIXES
+========================================= */
+
+/* Fix missing 4th card background */
+.eco-card-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%) !important;
+    border: none !important;
+    color: white !important;
+}
+.eco-card-primary h3, .eco-card-primary p, .eco-card-primary .eco-link {
+    color: white !important;
+}
+.eco-card-primary .eco-icon {
+    background: rgba(255,255,255,0.2) !important;
+    color: white !important;
+}
+
+/* Distinct Link Colors for the first 3 cards */
+.eco-card:nth-child(1) .eco-link { color: #2563eb; }
+.eco-card:nth-child(2) .eco-link { color: #7e22ce; }
+.eco-card:nth-child(3) .eco-link { color: #c2410c; }
+
+.eco-card:nth-child(1) .eco-link:hover { color: #1d4ed8; }
+.eco-card:nth-child(2) .eco-link:hover { color: #6b21a8; }
+.eco-card:nth-child(3) .eco-link:hover { color: #9a3412; }
+
