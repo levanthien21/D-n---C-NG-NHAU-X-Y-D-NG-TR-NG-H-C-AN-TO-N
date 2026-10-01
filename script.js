@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     const chatBody = document.getElementById('chat-body');
     const chatInput = document.getElementById('chat-input');
     const btnSend = document.getElementById('btn-send');
@@ -64,15 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    btnSend.addEventListener('click', handleSend);
+    if(btnSend) btnSend.addEventListener('click', handleSend);
 
-    chatInput.addEventListener('keypress', (e) => {
+    if(chatInput) chatInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             handleSend();
         }
     });
 
-    btnRefresh.addEventListener('click', () => {
+    if(btnRefresh) btnRefresh.addEventListener('click', () => {
         const messages = chatBody.querySelectorAll('.message');
         for (let i = 1; i < messages.length; i++) {
             messages[i].remove();
@@ -141,7 +141,7 @@ let is360Mode = false;
         window.addEventListener('mouseup', () => { isDragging = false; });
         
         // Touch events for mobile support
-        avatarWrapper.addEventListener('touchstart', (e) => {
+        if(avatarWrapper) avatarWrapper.addEventListener('touchstart', (e) => {
             if (!is360Mode) return;
             isDragging = true;
             startX = e.touches[0].clientX;
@@ -274,3 +274,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
