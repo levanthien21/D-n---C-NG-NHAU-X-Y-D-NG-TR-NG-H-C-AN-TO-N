@@ -1972,3 +1972,45 @@ body {
     text-align: center !important;
     width: 100% !important;
 }
+
+/* =========================================
+   FOOTER TITLES PARALLEL ALIGNMENT
+========================================= */
+
+/* Make all title blocks strictly 50px tall so the content below them starts on the exact same horizontal line */
+.footer-logo {
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 25px !important;
+}
+.footer-logo h3 {
+    margin: 0 !important;
+    font-family: "Inter", sans-serif !important; /* Match the other headings */
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+}
+.footer-logo .shield-icon {
+    height: 50px !important;
+    width: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+}
+
+.site-footer h4 {
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 0 25px 0 !important;
+    font-family: "Inter", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+}
+
+/* Ensure the links column center alignment doesn't break the flex height */
+.footer-col.links-col h4 {
+    justify-content: flex-start !important;
+}
+
