@@ -796,12 +796,7 @@ body {
     max-width: 100%;
 }
 
-.home-hero {
-    background: linear-gradient(135deg, #1e3a8a 0%, #2e1065 100%);
-    position: relative;
-    overflow: hidden;
-    padding: 80px 5%; /* Increased padding to prevent clipping */
-}
+
 
 .hero-content {
     flex: 1;
@@ -1188,12 +1183,7 @@ body {
 ========================================= */
 
 /* Hero Section Brighter & Smoother */
-.home-hero {
-    background: linear-gradient(135deg, #1e3a8a 0%, #2e1065 100%);
-    position: relative;
-    overflow: hidden;
-    padding: 80px 5%; /* Increased padding to prevent clipping */
-}
+
 .home-hero::before {
     content: '';
     position: absolute;
@@ -1286,3 +1276,20 @@ body {
 }
 
 
+
+.home-hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2e1065 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 5% 120px 5%; /* Huge padding bottom to fit the card completely */
+    width: 100%;
+}
+.home-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}

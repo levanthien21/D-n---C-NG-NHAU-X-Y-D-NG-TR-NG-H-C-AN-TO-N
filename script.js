@@ -82,3 +82,161 @@ document.addEventListener('DOMContentLoaded', () => {
     
     scrollToBottom();
 });
+
+
+// AVATAR INTERACTIONS
+let is360Mode = false;
+        let currentFrame = 0;
+        let isDragging = false;
+        let startX = 0;
+
+        function changeAvatar(view, btn) {
+            is360Mode = false;
+            const img = document.getElementById('main-avatar');
+            img.style.cursor = 'default';
+            if (view === 'front') img.src = 'avatar_front.jpg';
+            if (view === 'back') img.src = 'avatar_back.jpg';
+            
+            const buttons = document.querySelectorAll('.view-toggles button');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function activate360(btn) {
+            is360Mode = true;
+            currentFrame = 0;
+            const img = document.getElementById('main-avatar');
+            img.src = 'frame_0.jpg';
+            img.style.cursor = 'ew-resize';
+            
+            const buttons = document.querySelectorAll('.view-toggles button');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        const avatarWrapper = document.querySelector('.avatar-circle-wrapper');
+        
+        avatarWrapper.addEventListener('mousedown', (e) => {
+            if (!is360Mode) return;
+            isDragging = true;
+            startX = e.clientX;
+            e.preventDefault(); // Prevent native image dragging
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging || !is360Mode) return;
+            
+            const deltaX = e.clientX - startX;
+            if (Math.abs(deltaX) > 25) { // Sensitivity
+                if (deltaX > 0) {
+                    currentFrame = (currentFrame - 1 + 4) % 4; // Swipe right -> rotate left
+                } else {
+                    currentFrame = (currentFrame + 1) % 4; // Swipe left -> rotate right
+                }
+                document.getElementById('main-avatar').src = 'frame_' + currentFrame + '.jpg';
+                startX = e.clientX;
+            }
+        });
+
+        window.addEventListener('mouseup', () => { isDragging = false; });
+        
+        // Touch events for mobile support
+        avatarWrapper.addEventListener('touchstart', (e) => {
+            if (!is360Mode) return;
+            isDragging = true;
+            startX = e.touches[0].clientX;
+        });
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging || !is360Mode) return;
+            const deltaX = e.touches[0].clientX - startX;
+            if (Math.abs(deltaX) > 25) {
+                if (deltaX > 0) {
+                    currentFrame = (currentFrame - 1 + 4) % 4;
+                } else {
+                    currentFrame = (currentFrame + 1) % 4;
+                }
+                document.getElementById('main-avatar').src = 'frame_' + currentFrame + '.jpg';
+                startX = e.touches[0].clientX;
+            }
+        });
+        window.addEventListener('touchend', () => { isDragging = false; });
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        function refreshChat() {
+            // Copy /reset to clipboard
+            navigator.clipboard.writeText('/reset').then(() => {
+                showToast('✅ Đã copy lệnh! Hãy ấn vào ô chat, Dán (Ctrl + V) và Gửi đi nhé.');
+            }).catch(err => {
+                showToast('❌ Vui lòng tự gõ lệnh "/reset" vào ô chat và Gửi.');
+            });
+            
+            // Visual feedback
+            const btn = document.querySelector('.btn-refresh i');
+            btn.classList.add('fa-spin');
+            setTimeout(() => btn.classList.remove('fa-spin'), 1000);
+        }
+
+        // Speech Synthesis for Greeting using ResponsiveVoice (Guaranteed Female Voice)
+        function playGreeting() {
+            // Visual feedback
+            const btn = document.querySelector('.quote-voice');
+            const originalBg = btn.style.background;
+            btn.style.background = '#dbeafe';
+            setTimeout(() => { btn.style.background = originalBg; }, 300);
+
+            const text = "Chào em! Cô là Cô Tổng phụ trách AI của Liên đội Trường Tiểu học Hồng Phong. Cô luôn ở đây để lắng nghe, tôn trọng và đồng hành cùng em trong một không gian an toàn và không phán xét. Hôm nay em có điều gì băn khoăn cần cô chia sẻ không?";
+            
+            if (typeof responsiveVoice !== 'undefined') {
+                responsiveVoice.cancel();
+                responsiveVoice.speak(text, "Vietnamese Female", {
+                    pitch: 1.1,
+                    rate: 1.05,
+                    volume: 1
+                });
+            } else {
+                // Absolute fallback
+                fallbackTTS(text);
+            }
+        }
+
+        // Fallback in case offline
+        function fallbackTTS(fullText) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(fullText);
+                utterance.lang = 'vi-VN';
+                utterance.rate = 1.05;
+                utterance.pitch = 1.8;
+                
+                const voices = window.speechSynthesis.getVoices();
+                const viVoices = voices.filter(v => v.lang.includes('vi'));
+                
+                if (viVoices.length > 0) {
+                    const preferred = ['hoaimy', 'linh', 'google', 'female', 'mai', 'trang', 'thu'];
+                    const exclude = ['an', 'hung', 'nam', 'male'];
+                    
+                    let selectedVoice = viVoices.find(v => {
+                        let n = v.name.toLowerCase();
+                        return preferred.some(p => n.includes(p)) && !exclude.some(e => n.includes(e));
+                    });
+                    
+                    if (!selectedVoice) selectedVoice = viVoices[0];
+                    utterance.voice = selectedVoice;
+                }
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+        
+        // Pre-load voices for fallback
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = function() {
+                window.speechSynthesis.getVoices();
+            };
+        }
+    
