@@ -239,39 +239,82 @@ let is360Mode = false;
         }
     
 
+
 // =========================================
-// LIBRARY FILTER LOGIC
+// LIBRARY FILTER LOGIC & SEARCH
 // =========================================
 document.addEventListener('DOMContentLoaded', () => {
     const tagPills = document.querySelectorAll('.tag-pill');
     const libCards = document.querySelectorAll('.lib-card');
+    const searchInput = document.querySelector('.search-input-wrapper input');
+    const filterSelect = document.querySelector('.filter-dropdown select');
 
     if (tagPills.length > 0 && libCards.length > 0) {
+        
+        function filterCards() {
+            // Get active tag
+            const activePill = document.querySelector('.tag-pill.active');
+            // Decode safely or just check index 0 which is "All"
+            const isAllTags = activePill ? activePill.textContent.includes('Tất cả') : true;
+            const tagFilter = activePill ? activePill.textContent.trim().toLowerCase() : '';
+            
+            // Get search query
+            const searchQuery = searchInput ? searchInput.value.trim().toLowerCase() : '';
+            
+            // Get select dropdown
+            const classFilter = filterSelect ? filterSelect.value.trim().toLowerCase() : '';
+            const isAllClasses = classFilter.includes('tất cả');
+
+            libCards.forEach(card => {
+                let showCard = true;
+
+                // 1. Tag Filter
+                if (!isAllTags) {
+                    const badgeText = card.querySelector('.lib-badge.blue').textContent.trim().toLowerCase();
+                    if (badgeText !== tagFilter) {
+                        showCard = false;
+                    }
+                }
+
+                // 2. Search Filter
+                if (searchQuery !== '') {
+                    const titleText = card.querySelector('h3').textContent.toLowerCase();
+                    const descText = card.querySelector('.lib-desc').textContent.toLowerCase();
+                    if (!titleText.includes(searchQuery) && !descText.includes(searchQuery)) {
+                        showCard = false;
+                    }
+                }
+
+                // 3. Class Filter
+                if (!isAllClasses && classFilter !== '') {
+                    const metaText = card.querySelector('.lib-card-meta').textContent.toLowerCase();
+                    // Class 1 -> Khối 1
+                    if (!metaText.includes(classFilter) && !metaText.includes('toàn trường')) {
+                        showCard = false;
+                    }
+                }
+
+                card.style.display = showCard ? 'flex' : 'none';
+            });
+        }
+
+        // Event: Tag Click
         tagPills.forEach(pill => {
             pill.addEventListener('click', () => {
-                // Remove active class from all pills
                 tagPills.forEach(p => p.classList.remove('active'));
-                // Add active class to clicked pill
                 pill.classList.add('active');
-
-                const filterText = pill.textContent.trim().toLowerCase();
-
-                libCards.forEach(card => {
-                    if (filterText === 'tất cả chủ đề') {
-                        card.style.display = 'flex';
-                    } else {
-                        const badgeText = card.querySelector('.lib-badge.blue').textContent.trim().toLowerCase();
-                        if (badgeText === filterText) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    }
-                });
+                filterCards();
             });
         });
+
+        // Event: Search Input
+        if (searchInput) {
+            searchInput.addEventListener('input', filterCards);
+        }
+
+        // Event: Dropdown Change
+        if (filterSelect) {
+            filterSelect.addEventListener('change', filterCards);
+        }
     }
 });
-
-
-
