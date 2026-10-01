@@ -1745,3 +1745,22 @@ body {
     background: #ffffff !important;
 }
 
+
+/* =========================================
+   SEPARATE HOTLINE FROM FOOTER
+========================================= */
+
+.hotline-section {
+    background: #f8fafc !important; /* Light background so it's clearly part of the body */
+    padding: 60px 5% 80px 5% !important; /* Space above and below */
+    margin-bottom: 0 !important;
+}
+
+.hotline-banner {
+    /* Keep the dark elegant look but it now floats on a light background */
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 24px !important;
+}
+
