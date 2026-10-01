@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --primary-blue: #1e3a8a;
     --accent-blue: #2563eb;
     --light-blue: #eff6ff;
@@ -1186,117 +1186,106 @@ body {
 }
 
 
+
+
 /* =========================================
-   PREMIUM GLASSMORPHISM & DEEP AESTHETICS (OVERRIDE)
+   CLEAN & BRIGHT AESTHETICS (FIXED)
 ========================================= */
 
-/* Hero Section Depth */
+/* Hero Section Brighter & Smoother */
 .home-hero {
-    background: radial-gradient(circle at 20% 30%, #2e3192 0%, #1bffff 0%, transparent 10%), 
-                radial-gradient(circle at 80% 80%, #1e1b4b 0%, #0f172a 100%);
-    background-image: 
-        radial-gradient(circle at 15% 50%, rgba(79, 70, 229, 0.15), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.15), transparent 25%),
-        linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #2e1065 100%);
     position: relative;
+    overflow: hidden;
 }
 .home-hero::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.03%22/%3E%3C/svg%3E');
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 50%);
     pointer-events: none;
     z-index: 1;
 }
 
 .hero-title {
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .hero-message {
-    background: linear-gradient(90deg, rgba(234, 179, 8, 0.15), rgba(234, 179, 8, 0.02));
-    border-left: 4px solid #facc15;
-    border-radius: 0 8px 8px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    border-left: 4px solid #fde047;
+    border-radius: 4px 8px 8px 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Premium Buttons */
-.btn-primary-large {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255,255,255,0.3);
-}
-.btn-warning-large {
-    background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
-    border: 1px solid rgba(255,255,255,0.4);
-    box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3), inset 0 1px 0 rgba(255,255,255,0.5);
-    color: #422006;
-}
-
-/* Glassmorphism AI Card */
+/* Bright Glassmorphism AI Card */
 .home-ai-card {
-    background: rgba(255, 255, 255, 0.03) !important;
-    backdrop-filter: blur(16px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-    position: relative;
-    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 20px;
+    padding-bottom: 20px;
 }
-.home-ai-card::after {
+
+/* Fix Quote Container inside AI Card */
+.home-ai-card .quote-container {
+    background: white !important;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 15px;
+    position: relative;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
+.home-ai-card .quote-container::before {
     content: '';
     position: absolute;
-    top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-    z-index: 0;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
 }
-.home-ai-card:hover::after {
-    opacity: 1;
+.home-ai-card .quote-container h4 {
+    color: #ef4444 !important; /* Red header */
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+.home-ai-card .quote-container .quote-vi {
+    color: #1e293b !important; /* Dark text for readability */
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+.home-ai-card .quote-container .quote-en {
+    color: #64748b !important;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.home-ai-card .quote-container .quote-voice {
+    color: #2563eb !important;
+    background: #eff6ff !important;
+    border: 1px solid #bfdbfe !important;
+    font-size: 12px;
 }
 
-/* Elegant Cards with Layered Shadows */
+/* Elegant Cards */
 .value-card, .eco-card {
     background: #ffffff;
-    border: 1px solid rgba(226, 232, 240, 0.8);
-    box-shadow: 
-        0 4px 6px -1px rgba(0, 0, 0, 0.02),
-        0 10px 15px -3px rgba(0, 0, 0, 0.04),
-        0 20px 25px -5px rgba(0, 0, 0, 0.02);
-    border-radius: 16px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 .value-card:hover, .eco-card:hover {
-    box-shadow: 
-        0 10px 15px -3px rgba(0, 0, 0, 0.05),
-        0 20px 25px -5px rgba(0, 0, 0, 0.05),
-        0 30px 40px -10px rgba(0, 0, 0, 0.05);
-    border-color: rgba(226, 232, 240, 1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-5px);
 }
 
-.eco-card-primary {
-    background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 
-        0 10px 25px rgba(79, 70, 229, 0.4), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Hotline Banner Depth */
+/* Hotline Banner Brighter Depth */
 .hotline-banner {
-    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-.hl-card {
-    background: linear-gradient(145deg, #500724 0%, #450a0a 100%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 10px 15px -3px rgba(0,0,0,0.2);
-}
-.hl-card.hl-dark {
-    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 100%);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
 }
 
