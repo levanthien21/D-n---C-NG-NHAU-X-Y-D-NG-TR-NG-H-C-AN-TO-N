@@ -850,6 +850,7 @@ body {
 }
 
 .btn-primary-large {
+    white-space: nowrap;
     background: #2563eb;
     color: white;
     padding: 12px 24px;
@@ -867,6 +868,7 @@ body {
 .btn-primary-large:hover { background: #1d4ed8; }
 
 .btn-warning-large {
+    white-space: nowrap;
     background: #eab308;
     color: #713f12;
     padding: 12px 24px;
@@ -1125,6 +1127,7 @@ body {
 }
 
 .btn-primary-large {
+    white-space: nowrap;
     background: linear-gradient(135deg, #2563eb, #3b82f6);
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
@@ -1136,6 +1139,7 @@ body {
 }
 
 .btn-warning-large {
+    white-space: nowrap;
     background: linear-gradient(135deg, #eab308, #facc15);
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
@@ -1324,6 +1328,7 @@ body {
     gap: 4px;
 }
 .premium-toggles button {
+    white-space: nowrap;
     flex: 1;
     background: transparent;
     border: none;
@@ -1378,5 +1383,6 @@ body {
 .badge-blue {
     font-family: "Inter", sans-serif !important;
 }
+
 
 
