@@ -1428,3 +1428,35 @@ body {
 .hero-content {
     margin-top: 30px; /* Push down slightly to align with avatar */
 }
+
+/* =========================================
+   CARD ROUNDING & VIBRANT COLORS
+========================================= */
+
+/* Increase border radius for all cards */
+.value-card, .eco-card {
+    border-radius: 20px !important;
+}
+.hl-card {
+    border-radius: 16px !important;
+}
+
+/* Value Cards Vibrant Icons & Borders */
+.value-card:nth-child(1) { border-top: 4px solid #facc15 !important; }
+.value-card:nth-child(2) { border-top: 4px solid #22c55e !important; }
+.value-card:nth-child(3) { border-top: 4px solid #3b82f6 !important; }
+
+.value-card:nth-child(1) .value-icon { background: #fef08a !important; color: #a16207 !important; }
+.value-card:nth-child(2) .value-icon { background: #bbf7d0 !important; color: #166534 !important; }
+.value-card:nth-child(3) .value-icon { background: #bfdbfe !important; color: #1e40af !important; }
+
+/* Ecosystem Cards Vibrant Icons */
+.eco-card:nth-child(1) .eco-icon { background: #dbeafe !important; color: #2563eb !important; } /* Blue */
+.eco-card:nth-child(2) .eco-icon { background: #f3e8ff !important; color: #9333ea !important; } /* Purple */
+.eco-card:nth-child(3) .eco-icon { background: #ffedd5 !important; color: #ea580c !important; } /* Orange */
+
+/* Hotline Vibrant Highlights */
+.hl-badge { font-size: 12px !important; padding: 4px 10px !important; border-radius: 6px !important; }
+.hl-badge.gray { background: #3b82f6 !important; } /* Change gray badge to blue for pop */
+.hl-number { font-weight: 800 !important; }
+
