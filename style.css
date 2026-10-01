@@ -1494,3 +1494,87 @@ body {
     transform: scale(1.15) !important;
 }
 
+
+/* =========================================
+   FRESH & ADVANCED HOTLINE REDESIGN
+========================================= */
+
+.hotline-banner {
+    background: linear-gradient(135deg, #3b82f6 0%, #4f46e5 100%) !important;
+    box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.5) !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+}
+.hotline-banner::before {
+    content: '';
+    position: absolute;
+    top: -40%; left: -20%;
+    width: 150%; height: 150%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hl-left h2, .hl-left p {
+    color: #ffffff !important;
+    position: relative;
+    z-index: 2;
+}
+.hl-left p { opacity: 0.9 !important; }
+.hl-left i { 
+    color: #facc15 !important; /* Bright yellow phone icon */
+    position: relative;
+    z-index: 2;
+}
+
+.hl-card, .hl-card.hl-dark {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border: none !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+    transform: translateY(0);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.hl-card:hover, .hl-card.hl-dark:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 30px rgba(0,0,0,0.2) !important;
+}
+
+/* 111 & 113 Cards */
+.hl-card:nth-child(1), .hl-card:nth-child(2) {
+    border-top: 5px solid #ef4444 !important;
+}
+.hl-card:nth-child(1) .hl-number, .hl-card:nth-child(2) .hl-number {
+    color: #dc2626 !important;
+}
+.hl-card:nth-child(1) h4, .hl-card:nth-child(2) h4 {
+    color: #1e293b !important;
+}
+.hl-card:nth-child(1) p, .hl-card:nth-child(2) p {
+    color: #64748b !important;
+}
+.hl-card:nth-child(1) .hl-badge, .hl-card:nth-child(2) .hl-badge {
+    background: #fef2f2 !important;
+    color: #ef4444 !important;
+}
+
+/* School Support Cards */
+.hl-card.hl-dark {
+    border-top: 5px solid #3b82f6 !important;
+}
+.hl-card.hl-dark .hl-number {
+    color: #2563eb !important;
+}
+.hl-card.hl-dark h4 {
+    color: #1e293b !important;
+}
+.hl-card.hl-dark p {
+    color: #64748b !important;
+}
+.hl-card.hl-dark .hl-badge {
+    background: #eff6ff !important;
+    color: #3b82f6 !important;
+}
+
