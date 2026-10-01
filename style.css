@@ -2372,7 +2372,7 @@ body {
 /* Ban Giám Hiệu Grid */
 .admin-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 25px;
     margin-bottom: 70px;
 }
@@ -2457,7 +2457,7 @@ body {
 }
 .teachers-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     gap: 15px;
 }
 .standard-card .tc-image {
@@ -2476,6 +2476,7 @@ body {
     font-size: 11px;
     padding: 4px 8px;
 }
+
 
 
 
