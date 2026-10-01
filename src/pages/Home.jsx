@@ -7,7 +7,7 @@ export default function Home() {
             <div className="hero-container">
                 <div className="hero-content">
                     <div className="badge-blue"><i className="fas fa-star"></i> Liên Đội Trường Tiểu Học Hồng Phong • Dự Án Giáo Dục Kỹ Năng 2026</div>
-                    <h1 className="hero-title">CÙNG NHAU XÂY DỰNG<br/>TRƯỜNG HỌC AN TOÀN</h1>
+                    <h1 className="hero-title">CÙNG NHAU XÂY DỰNG<br />TRƯỜNG HỌC AN TOÀN</h1>
                     <p className="hero-desc">Môi trường học đường hạnh phúc, thấu cảm và không bạo lực. Cô Tổng phụ trách AI đồng hành cùng học sinh, thầy cô và phụ huynh.</p>
                     
                     <div className="hero-message">
