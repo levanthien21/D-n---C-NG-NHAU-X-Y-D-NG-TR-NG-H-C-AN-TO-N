@@ -240,3 +240,37 @@ let is360Mode = false;
             };
         }
     
+
+// =========================================
+// LIBRARY FILTER LOGIC
+// =========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const tagPills = document.querySelectorAll('.tag-pill');
+    const libCards = document.querySelectorAll('.lib-card');
+
+    if (tagPills.length > 0 && libCards.length > 0) {
+        tagPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                // Remove active class from all pills
+                tagPills.forEach(p => p.classList.remove('active'));
+                // Add active class to clicked pill
+                pill.classList.add('active');
+
+                const filterText = pill.textContent.trim().toLowerCase();
+
+                libCards.forEach(card => {
+                    if (filterText === 'tất cả chủ đề') {
+                        card.style.display = 'flex';
+                    } else {
+                        const badgeText = card.querySelector('.lib-badge.blue').textContent.trim().toLowerCase();
+                        if (badgeText === filterText) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    }
+});
