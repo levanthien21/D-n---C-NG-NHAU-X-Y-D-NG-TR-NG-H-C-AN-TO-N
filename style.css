@@ -1460,3 +1460,37 @@ body {
 .hl-badge.gray { background: #3b82f6 !important; } /* Change gray badge to blue for pop */
 .hl-number { font-weight: 800 !important; }
 
+
+/* =========================================
+   STICKY HEADER & EFFECTS
+========================================= */
+.site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6) !important;
+    transition: all 0.3s ease !important;
+}
+
+.site-header:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.nav-item {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+.nav-item:hover {
+    transform: translateY(-2px) !important;
+}
+.nav-item .nav-icon {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+.nav-item:hover .nav-icon {
+    transform: scale(1.15) !important;
+}
+
