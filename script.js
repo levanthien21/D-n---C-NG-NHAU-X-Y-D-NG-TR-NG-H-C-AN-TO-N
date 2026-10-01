@@ -9,9 +9,7 @@
         return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
     }
 
-    function scrollToBottom() {
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
+    function scrollToBottom() { if(chatBody) chatBody.scrollTop = chatBody.scrollHeight; }
 
     function addMessage(text, isUser = true) {
         if (!text.trim()) return;
@@ -274,5 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
