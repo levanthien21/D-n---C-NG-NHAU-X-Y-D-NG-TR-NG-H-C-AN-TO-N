@@ -2310,3 +2310,163 @@ body {
     background: #f8fafc;
 }
 
+
+/* =========================================
+   TEACHERS PAGE STYLES (Khu Vực Giáo Viên)
+========================================= */
+
+.teachers-wrapper {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.teachers-hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    border-radius: 20px;
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+}
+.teachers-hero h1 {
+    font-size: 36px;
+    margin: 15px 0;
+    font-family: "Times New Roman", Times, serif;
+}
+.teachers-hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #cbd5e1;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.section-header.center {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.section-header.center h2 {
+    font-size: 28px;
+    color: #1e293b;
+    margin-bottom: 10px;
+    font-family: "Times New Roman", Times, serif;
+}
+.title-underline {
+    height: 4px;
+    width: 60px;
+    background: #3b82f6;
+    margin: 0 auto 15px auto;
+    border-radius: 2px;
+}
+.section-header.center p {
+    color: #64748b;
+    font-size: 16px;
+}
+
+/* Ban Giám Hiệu Grid */
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 70px;
+}
+
+.teacher-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border: 1px solid #f1f5f9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+.teacher-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+.tc-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+.tc-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.teacher-card:hover .tc-image img {
+    transform: scale(1.05);
+}
+.tc-info {
+    padding: 25px 20px;
+}
+.tc-role {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.role-red { background: #fee2e2; color: #ef4444; }
+.role-blue { background: #dbeafe; color: #3b82f6; }
+.role-green { background: #d1fae5; color: #10b981; }
+.role-orange { background: #ffedd5; color: #f97316; }
+.role-gray { background: #f1f5f9; color: #475569; }
+
+.tc-name {
+    font-size: 18px;
+    color: #0f172a;
+    margin-bottom: 10px;
+    font-family: "Times New Roman", Times, serif;
+}
+.tc-desc {
+    font-size: 13px;
+    color: #64748b;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* Homeroom Teachers Grid */
+.grades-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.grade-section {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+}
+.grade-title {
+    font-size: 22px;
+    color: #1e293b;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0;
+    font-family: "Times New Roman", Times, serif;
+}
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+}
+.standard-card .tc-image {
+    height: 160px; /* Smaller image for standard teachers */
+}
+.standard-card .tc-info {
+    padding: 15px;
+}
+.standard-card .tc-name {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+.standard-card .tc-role {
+    margin-bottom: 10px;
+    font-size: 11px;
+    padding: 4px 8px;
+}
+
