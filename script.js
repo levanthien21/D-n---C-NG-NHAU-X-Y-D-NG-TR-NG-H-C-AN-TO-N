@@ -318,3 +318,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// =========================================
+// GLOBAL BUTTON INTERACTIONS
+// =========================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Helper to attach event
+    function attachToastClick(selector, message) {
+        document.querySelectorAll(selector).forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                showToast(message);
+            });
+        });
+    }
+
+    // Library page buttons
+    attachToastClick('.btn-green-solid', '✅ Hệ thống: Đang mở cửa sổ Thêm học liệu mới...');
+    attachToastClick('.btn-orange-solid', '☎ Hệ thống: Đang kết nối bảo mật đến Cán bộ tư vấn...');
+    
+    // Admin Toggle
+    const adminToggle = document.querySelector('.btn-admin-toggle');
+    if (adminToggle) {
+        let isAdmin = true;
+        adminToggle.addEventListener('click', () => {
+            isAdmin = !isAdmin;
+            if (isAdmin) {
+                adminToggle.innerHTML = '<i class="fas fa-sliders-h"></i> Đang bật Quản trị / Sửa';
+                adminToggle.style.background = '#eff6ff';
+                adminToggle.style.color = '#3b82f6';
+                document.querySelectorAll('.lib-card-actions').forEach(el => el.style.display = 'flex');
+                showToast('🔓 Hệ thống: Đã BẬT chế độ Quản trị viên (Hiện nút sửa/xóa).');
+            } else {
+                adminToggle.innerHTML = '<i class="fas fa-user-graduate"></i> Chế độ Học sinh (Xem)';
+                adminToggle.style.background = '#f1f5f9';
+                adminToggle.style.color = '#475569';
+                document.querySelectorAll('.lib-card-actions').forEach(el => el.style.display = 'none');
+                showToast('🔒 Hệ thống: Đã TẮT chế độ Quản trị viên (Chế độ Học sinh).');
+            }
+        });
+    }
+
+    // Card Edit/Delete
+    attachToastClick('.lib-card-actions .btn-icon:not(.text-red)', '✏ Hệ thống: Mở công cụ chỉnh sửa bài viết...');
+    attachToastClick('.lib-card-actions .text-red', '❌ Cảnh báo: Bạn cần quyền Quản trị cấp cao để Xóa!');
+    attachToastClick('.lib-explore', '📖 Hệ thống: Đang tải nội dung rèn luyện kỹ năng tương tác...');
+
+    // Home page buttons
+    attachToastClick('.btn-primary-large', '🤖 Hệ thống: Đang khởi động kết nối Trợ lý ảo AI...');
+    attachToastClick('.btn-warning-large', '🛡 Hệ thống: Chuyển hướng an toàn đến Biểu mẫu Báo cáo bí mật...');
+    attachToastClick('.eco-link', '📚 Hệ thống: Đang chuyển đến chuyên mục tương ứng...');
+});
