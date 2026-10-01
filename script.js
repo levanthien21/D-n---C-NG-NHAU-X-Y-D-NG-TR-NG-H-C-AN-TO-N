@@ -64,23 +64,23 @@
         }, 1000);
     }
 
-    if(btnSend) btnSend.addEventListener('click', handleSend);
+    if(btnSend) if (btnSend) btnSend.addEventListener('click', handleSend);
 
-    if(chatInput) chatInput.addEventListener('keypress', (e) => {
+    if(chatInput) if (chatInput) chatInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             handleSend();
         }
     });
 
-    if(btnRefresh) btnRefresh.addEventListener('click', () => {
+    if(btnRefresh) if (btnRefresh) btnRefresh.addEventListener('click', () => {
         const messages = chatBody.querySelectorAll('.message');
         for (let i = 1; i < messages.length; i++) {
             messages[i].remove();
         }
-        scrollToBottom();
-    });
+        if (chatBody) scrollToBottom();
+});
     
-    scrollToBottom();
+    if (chatBody) scrollToBottom();
 });
 
 
@@ -116,7 +116,7 @@ let is360Mode = false;
 
         const avatarWrapper = document.querySelector('.avatar-circle-wrapper');
         
-        avatarWrapper.addEventListener('mousedown', (e) => {
+        if (avatarWrapper) avatarWrapper.addEventListener('mousedown', (e) => {
             if (!is360Mode) return;
             isDragging = true;
             startX = e.clientX;
@@ -141,7 +141,7 @@ let is360Mode = false;
         window.addEventListener('mouseup', () => { isDragging = false; });
         
         // Touch events for mobile support
-        if(avatarWrapper) avatarWrapper.addEventListener('touchstart', (e) => {
+        if(avatarWrapper) if (avatarWrapper) avatarWrapper.addEventListener('touchstart', (e) => {
             if (!is360Mode) return;
             isDragging = true;
             startX = e.touches[0].clientX;
@@ -274,4 +274,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
