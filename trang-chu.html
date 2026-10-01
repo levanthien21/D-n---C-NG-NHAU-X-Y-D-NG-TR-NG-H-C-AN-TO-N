@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ - Cùng Nhau Xây Dựng Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=103">
+    <link rel="stylesheet" href="style.css?v=104">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="home-page">
@@ -55,6 +55,7 @@
     <div class="main-wrapper">
         <!-- HERO SECTION -->
         <section class="home-hero">
+            <div class="hero-container" style="display: flex; max-width: 1200px; width: 100%; margin: 0 auto; justify-content: space-between; align-items: center; gap: 40px; z-index: 2; position: relative;">
             <div class="hero-content">
                 <div class="badge-blue"><i class="fas fa-star"></i> Liên Đội Trường Tiểu Học Hồng Phong • Dự Án Giáo Dục Kỹ Năng 2026</div>
                 <h1 class="hero-title">CÙNG NHAU XÂY DỰNG<br>TRƯỜNG HỌC AN TOÀN</h1>
@@ -87,9 +88,9 @@
                         </div>
                         
                         <div class="view-toggles new-toggles">
-                            <button class="active">Mặt trước</button>
-                            <button>Sau lưng</button>
-                            <button>Toàn thân</button>
+                            <button class="active" onclick="changeAvatar('front', this)">Mặt trước</button>
+                            <button onclick="changeAvatar('back', this)">Sau lưng</button>
+                            <button onclick="activate360(this)">Toàn thân <br><small>(Vuốt để xoay)</small></button>
                         </div>
                     </div>
 
@@ -98,7 +99,7 @@
                         <h4><i class="far fa-heart"></i> LIÊN ĐỘI TIỂU HỌC HỒNG PHONG</h4>
                         <p class="quote-vi">"Chào em! Cô Tổng phụ trách AI luôn lắng nghe, tôn trọng và đồng hành cùng em."</p>
                         <p class="quote-en">"Hello! AI Pioneer Counselor is always here to listen, respect, and accompany you."</p>
-                        <p class="quote-voice" style="cursor: pointer; display: inline-block; padding: 6px 12px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 20px; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-top: 5px;">
+                        <p class="quote-voice" onclick="playGreeting()" style="cursor: pointer; display: inline-block; padding: 6px 12px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 20px; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-top: 5px;">
                             <i class="fas fa-volume-up" style="color: #2563eb; margin-right: 5px;"></i> Trò chuyện song ngữ TV - TA
                         </p>
                     </div>
@@ -112,6 +113,7 @@
                     </div>
                 </div>
             </div>
+                    </div>
         </section>
 
         <!-- 3 CORE VALUES -->
@@ -131,6 +133,7 @@
                 <h3>3. ĐỒNG HÀNH</h3>
                 <p>Dũng cảm lên tiếng bảo vệ bạn, không hùa theo cái xấu. Cùng nhau đồng hành vượt qua khủng hoảng tâm lý và kết nối với thầy cô khi cần trợ giúp.</p>
             </div>
+                    </div>
         </section>
 
         <!-- ECOSYSTEM -->
@@ -166,6 +169,7 @@
                     <a href="index.html" class="eco-link white">Trò chuyện ngay với Cô Tổng phụ trách AI <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
+                    </div>
         </section>
 
         <!-- HOTLINE -->
@@ -206,6 +210,7 @@
                     <p>Hỗ trợ an ninh trường lớp và xác minh vụ việc</p>
                 </div>
             </div>
+                    </div>
         </section>
     </div>
 
@@ -256,8 +261,11 @@
             </div>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
 
 
 
