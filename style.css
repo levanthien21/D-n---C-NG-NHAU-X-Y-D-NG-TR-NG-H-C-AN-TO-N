@@ -1579,59 +1579,120 @@ body {
 }
 
 
+
+
 /* =========================================
-   HOTLINE REDESIGN: GLASSMORPHISM
+   ULTIMATE PREMIUM HOTLINE REDESIGN (CLEAN & PROFESSIONAL)
 ========================================= */
 
+.hotline-banner {
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%) !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 24px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.hl-left h2 {
+    color: #0f172a !important;
+    font-size: 26px !important;
+    font-family: "Times New Roman", Times, serif !important;
+}
+.hl-left p {
+    color: #475569 !important;
+    font-family: "Inter", sans-serif !important;
+}
+.hl-left i { 
+    color: #ef4444 !important; /* Red phone icon */
+    background: #fee2e2 !important;
+    padding: 12px !important;
+    border-radius: 12px !important;
+    font-size: 24px !important;
+}
+
 .hl-card, .hl-card.hl-dark {
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
-    color: #ffffff !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05) !important;
+    border-radius: 16px !important;
+    transform: translateY(0);
+    transition: all 0.3s ease !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px !important;
 }
-
 .hl-card:hover, .hl-card.hl-dark:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 20px -5px rgba(0,0,0,0.08) !important;
+    border-color: #cbd5e1 !important;
 }
 
-/* 111 & 113 Cards - Glass styling */
+/* 111 & 113 Cards - Emergency */
 .hl-card:nth-child(1), .hl-card:nth-child(2) {
-    border-top: 1px solid rgba(255, 255, 255, 0.2) !important; /* Remove harsh solid red top border */
-}
-.hl-card:nth-child(1) h4, .hl-card:nth-child(2) h4,
-.hl-card.hl-dark h4 {
-    color: #ffffff !important;
-    font-size: 15px !important;
-}
-.hl-card:nth-child(1) p, .hl-card:nth-child(2) p,
-.hl-card.hl-dark p {
-    color: rgba(255, 255, 255, 0.8) !important;
+    border-top: 4px solid #ef4444 !important;
 }
 .hl-card:nth-child(1) .hl-number, .hl-card:nth-child(2) .hl-number {
-    color: #fca5a5 !important; /* Soft Pastel Red for freshness */
-    text-shadow: 0 2px 10px rgba(239, 68, 68, 0.4) !important;
+    color: #dc2626 !important; /* Strong Red */
+    font-size: 28px !important;
+    font-family: "Inter", sans-serif !important;
+    text-shadow: none !important;
+}
+.hl-card:nth-child(1) h4, .hl-card:nth-child(2) h4 {
+    color: #0f172a !important;
+    font-size: 15px !important;
+    font-family: "Inter", sans-serif !important;
+    margin-top: 10px !important;
+}
+.hl-card:nth-child(1) p, .hl-card:nth-child(2) p {
+    color: #64748b !important;
+    font-size: 13px !important;
+    font-family: "Inter", sans-serif !important;
 }
 .hl-card:nth-child(1) .hl-badge, .hl-card:nth-child(2) .hl-badge {
-    background: rgba(239, 68, 68, 0.2) !important;
-    color: #fca5a5 !important;
-    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+    background: #fee2e2 !important;
+    color: #dc2626 !important;
+    border: none !important;
+    font-family: "Inter", sans-serif !important;
 }
 
-/* School Support Cards - Glass styling */
+/* School Support Cards */
 .hl-card.hl-dark {
-    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-top: 4px solid #3b82f6 !important;
 }
 .hl-card.hl-dark .hl-number {
-    color: #93c5fd !important; /* Soft Pastel Blue */
-    text-shadow: 0 2px 10px rgba(59, 130, 246, 0.4) !important;
+    color: #2563eb !important; /* Strong Blue */
+    font-size: 24px !important;
+    font-family: "Inter", sans-serif !important;
+    text-shadow: none !important;
+}
+.hl-card.hl-dark h4 {
+    color: #0f172a !important;
+    font-size: 15px !important;
+    font-family: "Inter", sans-serif !important;
+    margin-top: 10px !important;
+}
+.hl-card.hl-dark p {
+    color: #64748b !important;
+    font-size: 13px !important;
+    font-family: "Inter", sans-serif !important;
 }
 .hl-card.hl-dark .hl-badge {
-    background: rgba(59, 130, 246, 0.2) !important;
-    color: #93c5fd !important;
-    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    background: #dbeafe !important;
+    color: #2563eb !important;
+    border: none !important;
+    font-family: "Inter", sans-serif !important;
+}
+
+/* Adjust Hotline Button */
+.hotline-header .btn-warning-large {
+    background: #ef4444 !important;
+    color: white !important;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3) !important;
+}
+.hotline-header .btn-warning-large:hover {
+    background: #dc2626 !important;
+    box-shadow: 0 6px 15px rgba(239, 68, 68, 0.4) !important;
 }
 
