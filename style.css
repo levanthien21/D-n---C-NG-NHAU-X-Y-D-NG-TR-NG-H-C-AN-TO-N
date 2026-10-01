@@ -73,6 +73,7 @@ body {
     gap: 12px;
 }
 .nav-item {
+    width: 110px; /* Force even spacing for icons */
     text-decoration: none;
     color: var(--text-muted);
     display: flex;
@@ -1485,6 +1486,7 @@ body {
 }
 
 .nav-item {
+    width: 110px; /* Force even spacing for icons */
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 .nav-item:hover {
@@ -2474,6 +2476,7 @@ body {
     font-size: 11px;
     padding: 4px 8px;
 }
+
 
 
 
