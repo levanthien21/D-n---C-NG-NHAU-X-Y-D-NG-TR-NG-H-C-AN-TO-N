@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Cùng Nhau Xây Dựng Trường Học An Toàn</title>
+    <link rel="stylesheet" href="style.css?v=120">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="home-page">
+    <header class="site-header">
+        <div class="header-left">
+            <img src="logo.jpg" alt="Logo" class="logo">
+            <div class="header-titles">
+                <div class="title-red">LIÊN ĐỘI TRƯỜNG TIỂU HỌC HỒNG PHONG</div>
+                <div class="title-blue">CÙNG NHAU XÂY DỰNG TRƯỜNG HỌC AN TOÀN</div>
+            </div>
+        </div>
+        <div class="header-center">
+            <nav class="main-nav">
+                <a href="trang-chu.html" class="nav-item active">
+                    <div class="nav-icon"><i class="fas fa-home"></i></div>
+                    <span>Trang Chủ</span>
+                </a>
+                <a href="index.html" class="nav-item">
+                    <div class="nav-icon"><i class="fas fa-robot"></i></div>
+                    <span>Trợ Lý Ảo AI</span>
+                </a>
+                <a href="kho-hoc-lieu.html" class="nav-item">
+                    <div class="nav-icon"><i class="fas fa-book-open"></i></div>
+                    <span>Kho Học Liệu</span>
+                </a>
+                <a href="tinh-huong-ky-nang.html" class="nav-item">
+                    <div class="nav-icon"><i class="far fa-compass"></i></div>
+                    <span>Tình Huống Kỹ Năng</span>
+                </a>
+                <a href="ngan-hang-cau-hoi.html" class="nav-item">
+                    <div class="nav-icon"><i class="far fa-question-circle"></i></div>
+                    <span>Ngân Hàng Câu Hỏi</span>
+                </a>
+                <a href="khu-vuc-giao-vien.html" class="nav-item">
+                    <div class="nav-icon"><i class="fas fa-user-friends"></i></div>
+                    <span>Khu Vực Giáo Viên</span>
+                </a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <button class="btn-hotline"><i class="fas fa-phone-alt"></i> Hotline 111</button>
+            <div class="user-dropdown">
+                Học sinh Tiểu học <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- HERO SECTION -->
+        <section class="home-hero">
+            <div class="hero-container">
+            <div class="hero-content">
+                <div class="badge-blue"><i class="fas fa-star"></i> Liên Đội Trường Tiểu Học Hồng Phong • Dự Án Giáo Dục Kỹ Năng 2026</div>
+                <h1 class="hero-title">CÙNG NHAU XÂY DỰNG<br>TRƯỜNG HỌC AN TOÀN</h1>
+                <p class="hero-desc">Môi trường học đường hạnh phúc, thấu cảm và không bạo lực. Cô Tổng phụ trách AI đồng hành cùng học sinh, thầy cô và phụ huynh.</p>
+                
+                <div class="hero-message">
+                    <i class="fas fa-bullhorn"></i> Thông điệp cốt lõi: "Tôn trọng - Lắng nghe - Đồng hành / Respect - Listen - Accompany"
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="index.html" class="btn-primary-large"><i class="fas fa-robot"></i> Trò chuyện với Cô Tổng phụ trách AI <i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-warning-large"><i class="fas fa-shield-alt"></i> Gửi phiếu hỗ trợ bí mật</button>
+                </div>
+
+                <div class="hero-trust">
+                    <span><i class="fas fa-lock"></i> Bảo mật danh tính 100%</span>
+                    <span><i class="fas fa-link"></i> Kết nối trực tiếp 111 & Thầy Cô</span>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <!-- Tái sử dụng thẻ AI từ index.html -->
+                <div class="left-panel-unified home-ai-card">
+                    <div class="avatar-section">
+                        <div class="avatar-circle-wrapper">
+                            <img src="avatar_front.jpg" alt="Avatar" id="main-avatar">
+                        </div>
+                        <div class="avatar-badge">
+                            <span class="status-dot red"></span> Cô Tổng phụ trách AI • Tiểu Học Hồng Phong
+                        </div>
+                        
+                        <div class="view-toggles premium-toggles">
+                            <button class="active" onclick="changeAvatar('front', this)">Mặt trước</button>
+                            <button onclick="changeAvatar('back', this)">Sau lưng</button>
+                            <button onclick="activate360(this)">Toàn thân (360°)</button>
+                        </div>
+                    </div>
+
+                    <div class="quote-container styled-quote">
+                        <div class="quote-arrow"></div>
+                        <h4><i class="far fa-heart"></i> LIÊN ĐỘI TIỂU HỌC HỒNG PHONG</h4>
+                        <p class="quote-vi">"Chào em! Cô Tổng phụ trách AI luôn lắng nghe, tôn trọng và đồng hành cùng em."</p>
+                        <p class="quote-en">"Hello! AI Pioneer Counselor is always here to listen, respect, and accompany you."</p>
+                        <p class="quote-voice" onclick="playGreeting()" style="cursor: pointer; display: inline-block; padding: 6px 12px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 20px; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-top: 5px;">
+                            <i class="fas fa-volume-up" style="color: #2563eb; margin-right: 5px;"></i> Trò chuyện song ngữ TV - TA
+                        </p>
+                    </div>
+
+                    <div class="ai-info-styled" style="text-align: center; border: none; background: transparent;">
+                        <h3 class="ai-name">Cô Tổng phụ trách AI</h3>
+                        <p class="ai-school">Liên đội Trường Tiểu học Hồng Phong</p>
+                        <p style="color: #eab308; font-size: 11px; font-weight: 700; margin-top: 5px;">Huy hiệu Măng non • Khăn quàng đỏ • Song ngữ TV - TA</p>
+                        
+                        <a href="index.html" class="btn-refresh-full" style="display: inline-block; text-decoration: none; margin-top: 15px; width: 80%;"><i class="fas fa-comment-dots"></i> Trò chuyện cùng Cô Tổng phụ trách AI</a>
+                    </div>
+                </div>
+            </div>
+                    </div>
+        </section>
+
+        <!-- 3 CORE VALUES -->
+        <section class="core-values">
+            <div class="value-card">
+                <div class="value-icon yellow"><i class="fas fa-heart"></i></div>
+                <h3>1. TÔN TRỌNG</h3>
+                <p>Tôn trọng sự khác biệt về ngoại hình, tính cách, quan điểm và gia cảnh của từng bạn học. Tuyệt đối không miệt thị, cô lập hay xúc phạm thân thể.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon green"><i class="fas fa-ear-listen"></i></div>
+                <h3>2. LẮNG NGHE</h3>
+                <p>Lắng nghe không phán xét. Khi bạn bè gặp khó khăn hoặc bị bắt nạt, hãy lắng nghe chân thành và tạo cho bạn một điểm tựa an toàn để chia sẻ.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon blue"><i class="fas fa-hands-holding-child"></i></div>
+                <h3>3. ĐỒNG HÀNH</h3>
+                <p>Dũng cảm lên tiếng bảo vệ bạn, không hùa theo cái xấu. Cùng nhau đồng hành vượt qua khủng hoảng tâm lý và kết nối với thầy cô khi cần trợ giúp.</p>
+            </div>
+                    </div>
+        </section>
+
+        <!-- ECOSYSTEM -->
+        <section class="ecosystem-section">
+            <div class="section-header">
+                <span class="badge-light">Các Chức Năng Nòng Cốt</span>
+                <h2>Hệ Sinh Thái Giáo Dục An Toàn Học Đường</h2>
+                <p>Khám phá các trung tâm rèn luyện kỹ năng số, học liệu chuẩn mực và công cụ bảo vệ học sinh toàn diện.</p>
+            </div>
+            <div class="eco-grid">
+                <div class="eco-card">
+                    <div class="eco-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Kho Học Liệu Truyền Thông</h3>
+                    <p>6 chuyên đề cốt lõi: Bạo lực thể chất, bạo lực tinh thần, an ninh mạng, tình bạn tích cực và kỹ năng tìm trợ giúp.</p>
+                    <a href="kho-hoc-lieu.html" class="eco-link">Xem tài liệu & infographic <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-icon purple"><i class="far fa-compass"></i></div>
+                    <h3>Tình Huống & Rèn Luyện Kỹ Năng</h3>
+                    <p>5 tình huống mô phỏng thực tế: Chế giễu ngoại hình, cô lập nhóm chat, phát tán video nhạy cảm, đe dọa thể chất.</p>
+                    <a href="tinh-huong-ky-nang.html" class="eco-link">Thực hành xử lý tình huống <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-icon orange"><i class="far fa-question-circle"></i></div>
+                    <h3>Ngân Hàng Câu Hỏi & Đề Thi</h3>
+                    <p>Khảo sát trắc nghiệm phản hồi tức thì, giải thích chuẩn mực, bảng tổng hợp kết quả theo lớp không lộ điểm cá nhân.</p>
+                    <a href="ngan-hang-cau-hoi.html" class="eco-link">Làm bài kiểm tra khảo sát <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="eco-card eco-card-primary">
+                    <div class="eco-icon white"><i class="fas fa-robot"></i></div>
+                    <h3>Cô Tổng phụ trách AI (3D)</h3>
+                    <p>Giao tiếp bằng giọng nói tiếng Việt và văn bản, tư vấn tình huống an toàn, kết nối bảo mật đến thầy cô chủ nhiệm.</p>
+                    <a href="index.html" class="eco-link white">Trò chuyện ngay với Cô Tổng phụ trách AI <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+                    </div>
+        </section>
+
+        <!-- HOTLINE -->
+        <section class="hotline-section">
+            <section class="hotline-banner">
+            <div class="hotline-header">
+                <div class="hl-left">
+                    <i class="fas fa-phone-volume"></i>
+                    <div>
+                        <h2>Đường Dây Nóng Khẩn Cấp & Kênh Hỗ Trợ 24/7</h2>
+                        <p>Khi gặp tình huống đe dọa trực tiếp đến tính mạng hoặc sức khỏe tinh thần, hãy liên hệ ngay!</p>
+                    </div>
+                </div>
+                <button class="btn-warning-large">Gửi tin báo bảo mật cho trường</button>
+            </div>
+            <div class="hotline-grid">
+                <div class="hl-card">
+                    <span class="hl-badge">Khẩn cấp quốc gia</span>
+                    <h3 class="hl-number">111</h3>
+                    <h4>Tổng đài Quốc gia Bảo vệ Trẻ em</h4>
+                    <p>Miễn phí 24/7, tiếp nhận tin báo khẩn cấp</p>
+                </div>
+                <div class="hl-card">
+                    <span class="hl-badge">Khẩn cấp 24/7</span>
+                    <h3 class="hl-number">113</h3>
+                    <h4>Đường dây nóng Cảnh sát phản ứng nhanh</h4>
+                    <p>Xử lý bạo lực, xung đột đe dọa thể chất</p>
+                </div>
+                <div class="hl-card hl-dark">
+                    <span class="hl-badge gray">Tại trường</span>
+                    <h3 class="hl-number yellow">024.3826.9999</h3>
+                    <h4>Phòng Tư vấn Tâm lý Học đường</h4>
+                    <p>Thầy/Cô tư vấn trực tiếp tại trường (Phòng 102 - Nhà A)</p>
+                </div>
+                <div class="hl-card hl-dark">
+                    <span class="hl-badge gray">Ban giám hiệu</span>
+                    <h3 class="hl-number yellow">024.3826.8888</h3>
+                    <h4>Tổ Giám thị & Ban Giám Hiệu</h4>
+                    <p>Hỗ trợ an ninh trường lớp và xác minh vụ việc</p>
+                </div>
+            </div>
+                    </div>
+            </section>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="footer-logo">
+                    <div class="shield-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>CÙNG NHAU XÂY DỰNG TRƯỜNG HỌC AN TOÀN</h3>
+                </div>
+                <p>Nền tảng giáo dục số ứng dụng Trí tuệ Nhân tạo phục vụ truyền thông, rèn luyện kỹ năng và phòng, chống bạo lực học đường dành cho học sinh Tiểu học, giáo viên chủ nhiệm, cán bộ tư vấn và phụ huynh.</p>
+                <div class="footer-badges">
+                    <span class="badge-green"><i class="fas fa-lock"></i> Bảo mật danh tính</span>
+                    <span class="badge-red"><i class="fas fa-heart"></i> Vì một thế hệ học đường hạnh phúc</span>
+                </div>
+            </div>
+            
+            <div class="footer-col links-col">
+                <h4>CHỨC NĂNG CHÍNH</h4>
+                <ul>
+                    <li><a href="index.html">Trợ lý ảo Cô Tổng phụ trách AI (3D)</a></li>
+                    <li><a href="kho-hoc-lieu.html">Kho học liệu truyền thông 6 chủ đề</a></li>
+                    <li><a href="tinh-huong-ky-nang.html">5 Tình huống rèn luyện kỹ năng</a></li>
+                    <li><a href="ngan-hang-cau-hoi.html">Ngân hàng câu hỏi trắc nghiệm</a></li>
+                    <li><a href="khu-vuc-giao-vien.html">Cổng điều phối giáo viên & tư vấn</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col contact-col">
+                <h4>ĐƯỜNG DÂY NÓNG KHẨN CẤP</h4>
+                <ul class="hotline-list">
+                    <li class="highlight"><i class="fas fa-phone-alt"></i> Tổng đài Quốc gia Trẻ em: 111</li>
+                    <li><i class="fas fa-phone-alt"></i> Cảnh sát phản ứng nhanh: 113</li>
+                    <li><i class="fas fa-door-open"></i> Phòng tư vấn: Phòng Công tác Đội.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="copyright">
+                    &copy; 2026 Dự Án Ứng Dụng Trí Tuệ Nhân Tạo Phòng Chống Bạo Lực Học Đường Tiểu Học. Toàn bộ quyền được bảo lưu.
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

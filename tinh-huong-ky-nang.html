@@ -26,7 +26,7 @@
                     <div class="nav-icon"><i class="fas fa-home"></i></div>
                     <span>Trang Chủ</span>
                 </a>
-                <a href="index.html" class="nav-item active">
+                <a href="index.html" class="nav-item">
                     <div class="nav-icon"><i class="fas fa-robot"></i></div>
                     <span>Trợ Lý Ảo AI</span>
                 </a>
@@ -34,7 +34,7 @@
                     <div class="nav-icon"><i class="fas fa-book-open"></i></div>
                     <span>Kho Học Liệu</span>
                 </a>
-                <a href="tinh-huong-ky-nang.html" class="nav-item">
+                <a href="tinh-huong-ky-nang.html" class="nav-item active">
                     <div class="nav-icon"><i class="far fa-compass"></i></div>
                     <span>Tình Huống Kỹ Năng</span>
                 </a>
@@ -56,90 +56,24 @@
         </div>
     </header>
 
-    <div class="main-wrapper">
+        <div class="main-wrapper">
         <div class="hero-banner">
             <div class="banner-left">
-                <div class="banner-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <div class="banner-icon"><i class="far fa-compass"></i></div>
                 <div class="banner-text">
-                    <h2>Trợ Lý Ảo AI – Cô Tổng phụ trách AI <span class="badge-3d">AI 3D Tương Tác</span></h2>
-                    <p>Tư vấn ứng xử an toàn • Lắng nghe không phán xét • Kết nối Thầy Cô & Tổng đài Quốc gia 111</p>
+                    <h2>Tình Huống Kỹ Năng</h2>
+                    <p>Phần nội dung đang được xây dựng...</p>
                 </div>
-            </div>
-            <div class="banner-right">
-                <button class="btn-support"><i class="fas fa-shield-alt"></i> Gửi Yêu Cầu Hỗ Trợ Riêng</button>
             </div>
         </div>
-
-        <div class="content-grid">
-            <div class="left-panel-unified">
-                <div class="avatar-section">
-                    <div class="avatar-circle-wrapper">
-                        <img src="avatar_front.jpg" alt="Avatar" id="main-avatar">
-                    </div>
-                    <div class="avatar-badge">
-                        <span class="status-dot red"></span> Cô Tổng phụ trách AI • Tiểu Học Hồng Phong
-                    </div>
-                    
-                    <div class="view-toggles new-toggles">
-                        <button class="active" onclick="changeAvatar('front', this)">Mặt trước</button>
-                        <button onclick="changeAvatar('back', this)">Sau lưng</button>
-                        <button onclick="activate360(this)">Toàn thân <br><small>(Vuốt để xoay)</small></button>
-                    </div>
-                </div>
-
-                <div class="quote-container styled-quote">
-                    <div class="quote-arrow"></div>
-                    <h4><i class="far fa-heart"></i> LIÊN ĐỘI TIỂU HỌC HỒNG PHONG</h4>
-                    <p class="quote-vi">"Chào em! Cô Tổng phụ trách AI luôn lắng nghe, tôn trọng và đồng hành cùng em."</p>
-                    <p class="quote-en">"Hello! AI Pioneer Counselor is always here to listen, respect, and accompany you."</p>
-                    <p class="quote-voice" onclick="playGreeting()" title="Nhấn để nghe giọng nói" style="cursor: pointer; display: inline-block; padding: 6px 12px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 20px; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-top: 5px;">
-                        <i class="fas fa-volume-up" style="color: #2563eb; margin-right: 5px;"></i> Nghe lời chào (Bật tiếng)
-                    </p>
-                </div>
-
-                <div class="ai-info-styled">
-                    <h3 class="ai-name">Cô Tổng phụ trách AI</h3>
-                    <p class="ai-school">Liên đội Trường Tiểu học Hồng Phong</p>
-                    
-                    <div class="outfit-box">
-                        <div class="outfit-title"><i class="fas fa-check-square" style="color: #3b82f6;"></i> Trang phục & Nhận diện chuẩn:</div>
-                        <ul class="outfit-list">
-                            <li><span class="dot red"></span> Khăn quàng đỏ thắm & Áo polo xanh dương</li>
-                            <li><span class="dot orange"></span> Huy hiệu Măng non ở tay áo & Logo trường</li>
-                            <li><span class="dot blue"></span> Sau lưng áo: Liên đội TH Hồng Phong</li>
-                            <li><span class="dot black"></span> Chân váy đen dài qua gối & Giày đen thanh lịch</li>
-                        </ul>
-                    </div>
-
-                    <div class="safety-box">
-                        <div class="safety-title"><i class="fas fa-shield-alt" style="color: #2563eb;"></i> Nguyên Tắc An Toàn & Bảo Mật</div>
-                        <ul class="safety-list">
-                            <li>Mọi chia sẻ của em tại đây hoàn toàn được giữ kín.</li>
-                            <li>Cô Tổng phụ trách AI không thay thế bác sĩ tâm thần hoặc quyết định kỷ luật.</li>
-                            <li>Em có quyền quyết định khi nào cần chuyển thông tin tới thầy cô.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="feature-pills">
-                        <span class="pill blue"><i class="fas fa-heart"></i> Đồng hành 24/7</span>
-                        <span class="pill cyan"><i class="fas fa-globe"></i> Song ngữ TV - TA</span>
-                        <span class="pill yellow"><i class="fas fa-handshake"></i> Không phán xét</span>
-                    </div>
-                </div>
-
-                <button class="btn-refresh-full" id="btn-refresh" onclick="refreshChat()">
-                    <i class="fas fa-redo-alt"></i> Làm mới hội thoại AI
-                </button>
-            </div>
-
-            <div class="chat-card">
-                <div style="flex: 1; display: flex; flex-direction: column;">
-                    <iframe id="chat-iframe" src="https://c.retify.ai/c/331185266490226" style="width: 100%; height: 100%; border: none; border-radius: 20px;"></iframe>
-                </div>
+        <div class="content-grid" style="min-height: 50vh; display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center; color: #64748b;">
+                <i class="far fa-compass" style="font-size: 48px; margin-bottom: 20px; color: #cbd5e1;"></i>
+                <h3>Nội dung Tình Huống Kỹ Năng sẽ sớm ra mắt!</h3>
+                <p>Website đang trong quá trình hoàn thiện các tính năng.</p>
             </div>
         </div>
     </div>
-    
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-col brand-col">
@@ -344,6 +278,7 @@
     <div class="toast-notification" id="toast"></div>
 </body>
 </html>
+
 
 
 
