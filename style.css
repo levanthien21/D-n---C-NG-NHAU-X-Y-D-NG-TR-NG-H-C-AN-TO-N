@@ -1952,3 +1952,23 @@ body {
     color: #64748b !important;
 }
 
+
+/* =========================================
+   FOOTER SYMMETRY & BOTTOM TEXT
+========================================= */
+
+.footer-col.brand-col { flex: 1.2 !important; padding-right: 20px; }
+.footer-col.links-col { flex: 1 !important; display: flex; flex-direction: column; align-items: center; }
+.footer-col.links-col ul { width: 100%; max-width: 250px; } /* keep links aligned left within center */
+.footer-col.links-col h4 { width: 100%; max-width: 250px; text-align: left; }
+.footer-col.contact-col { flex: 1.2 !important; }
+
+.footer-bottom .footer-container {
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.copyright {
+    text-align: center !important;
+    width: 100% !important;
+}
