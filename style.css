@@ -1299,9 +1299,7 @@ body {
 }
 
 /* OVERRIDE FOR PROFESSIONAL LOOK */
-.hero-container {
-    align-items: center !important;
-}
+
 
 .home-hero {
     padding: 60px 5% !important; /* Reset padding to be balanced */
@@ -1414,3 +1412,19 @@ body {
 .eco-card:nth-child(2) .eco-link:hover { color: #6b21a8; }
 .eco-card:nth-child(3) .eco-link:hover { color: #9a3412; }
 
+
+/* PROPER LAYOUT BALANCING */
+.hero-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: flex-start; /* Align top */
+    gap: 40px;
+    z-index: 2;
+    position: relative;
+}
+.hero-content {
+    margin-top: 30px; /* Push down slightly to align with avatar */
+}
