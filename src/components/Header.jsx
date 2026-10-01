@@ -5,7 +5,7 @@ export default function Header() {
     <header className="site-header">
         <div className="header-container">
             <div className="logo-area">
-                <img src="../logo.png" alt="Logo" className="logo" onError={(e) => e.target.style.display='none'} />
+                <img src="/logo.jpg" alt="Logo" className="logo" onError={(e) => e.target.style.display='none'} />
                 <div className="brand-text">
                     <span className="brand-subtitle">LIÊN ĐỘI TRƯỜNG TIỂU HỌC HỒNG PHONG</span>
                     <span className="brand-title">CÙNG NHAU XÂY DỰNG TRƯỜNG HỌC AN TOÀN</span>
@@ -50,3 +50,4 @@ export default function Header() {
     </header>
   );
 }
+
