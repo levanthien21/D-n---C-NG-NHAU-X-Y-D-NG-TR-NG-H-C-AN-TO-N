@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
     attachToastClick('.btn-outline-red', '❌ Cảnh báo: Cần quyền Quản trị để Xóa tình huống!');
     attachToastClick('.toggle-btn', '🔄 Đang xoay mô hình 3D của Cô Tổng phụ trách...');
     attachToastClick('.msg-link', '🔊 Đang bật chế độ phát âm thanh Song ngữ...');
-    attachToastClick('.btn-outline-red-full', '🚨 Đang mở kết nối khẩn cấp đến Đường dây nóng 111!');
+    
     attachToastClick('.expand-header', '📖 Đang mở rộng nội dung Phân tích đa chiều...');
     attachToastClick('.situation-footer .btn-blue-solid', '⏩ Đang chuyển sang Tình huống kế tiếp...');
     
@@ -571,3 +571,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+        // Report Modal Interactions
+        const reportBtn = document.querySelector('.btn-outline-red-full');
+        const modal = document.getElementById('report-modal');
+        if (reportBtn && modal) {
+            const closeBtn = modal.querySelector('.modal-close');
+            const anonToggle = document.getElementById('anon-toggle');
+            const identityFields = document.getElementById('identity-fields');
+            const submitBtn = modal.querySelector('.btn-blue-solid');
+
+            reportBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.style.display = 'none';
+            });
+            
+            if (anonToggle && identityFields) {
+                anonToggle.addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        identityFields.classList.add('identity-disabled');
+                        identityFields.querySelectorAll('input, select').forEach(el => el.value = '');
+                        showToast('🔒 Đã bật Chế độ Ẩn danh. Thông tin cá nhân của em sẽ được bảo mật tuyệt đối.');
+                    } else {
+                        identityFields.classList.remove('identity-disabled');
+                        showToast('👁️ Đã tắt Chế độ Ẩn danh.');
+                    }
+                });
+            }
+
+            if (submitBtn) {
+                submitBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.style.display = 'none';
+                    showToast('✅ Yêu cầu hỗ trợ đã được gửi an toàn đến Ban Tư Vấn Học Đường!');
+                });
+            }
+        }

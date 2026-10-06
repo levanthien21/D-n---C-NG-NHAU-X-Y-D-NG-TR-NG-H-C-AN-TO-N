@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tình Huống Kỹ Năng - Cùng Nhau Xây Dựng Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=141">
+    <link rel="stylesheet" href="style.css?v=144">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="situations-page">
@@ -288,9 +288,95 @@
             </div>
         </div>
     </footer>
-    <script src="script.js?v=143"></script>
+    <script src="script.js?v=144"></script>
+
+    <!-- Report Modal -->
+    <div id="report-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title-area">
+                    <div class="modal-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <h3>Gửi Yêu Cầu Hỗ Trợ Bảo Mật</h3>
+                        <p>Kết nối trực tiếp đến Thầy Cô Chủ Nhiệm & Ban Tư Vấn Tâm Lý Học Đường</p>
+                    </div>
+                </div>
+                <button class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="privacy-notice">
+                    <i class="fas fa-lock" style="font-size: 18px; margin-top: 2px;"></i>
+                    <div>
+                        <strong>Quyền riêng tư & Giới hạn an toàn:</strong> Em có thể lựa chọn <em>Ẩn danh</em>. Thông tin chỉ được chia sẻ với thầy cô có thẩm quyền nhằm bảo vệ an toàn cho em; tuyệt đối không tiết lộ cho kẻ bắt nạt hoặc tập thể lớp.
+                    </div>
+                </div>
+                
+                <div class="form-group toggle-group">
+                    <div>
+                        <strong>Chế độ gửi ẩn danh (Giấu tên)</strong>
+                        <p class="text-muted">Thầy cô sẽ không biết tên của em nếu em chưa sẵn sàng</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="anon-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div class="form-row" id="identity-fields" style="transition: all 0.3s;">
+                    <div class="form-group">
+                        <label>Họ và tên của em</label>
+                        <input type="text" placeholder="Ví dụ: Nguyễn Văn An">
+                    </div>
+                    <div class="form-group">
+                        <label>Lớp</label>
+                        <select>
+                            <option>1A1</option><option>2A1</option><option>3A1</option><option>4A1</option><option>5A1</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Vấn đề cần hỗ trợ</label>
+                        <select>
+                            <option>Bắt nạt thể chất & Đe dọa</option>
+                            <option>Bạo lực tinh thần & Cô lập</option>
+                            <option>Bắt nạt trực tuyến</option>
+                            <option>Xâm hại / Lạm dụng</option>
+                            <option>Áp lực học tập / Trầm cảm</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mức độ khẩn cấp</label>
+                        <select>
+                            <option>Trung bình (Cần tư vấn trong 24h)</option>
+                            <option>Nghiêm trọng (Cần can thiệp ngay)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Mô tả chi tiết tình huống của em <span style="color:red">*</span></label>
+                    <textarea rows="4" placeholder="Em hãy chia sẻ ngắn gọn: Chuyện gì đang xảy ra? Ở đâu? Em cần thầy cô giúp gì nhất?..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Kênh liên hệ an toàn (Số điện thoại / Zalo / Email phụ huynh nếu có)</label>
+                    <input type="text" placeholder="Ví dụ: Zalo 0912*** hoặc nhắn tin riêng cho em">
+                </div>
+
+                <div class="emergency-note">
+                    <i class="fas fa-phone-alt"></i> Trường hợp khẩn cấp gọi ngay 111 hoặc 113
+                </div>
+
+                <button class="btn-blue-solid" style="width:100%; justify-content:center; padding:15px; font-size:16px;">Gửi yêu cầu bảo mật <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+
 
 
 
