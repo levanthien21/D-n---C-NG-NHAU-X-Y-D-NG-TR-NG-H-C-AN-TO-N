@@ -61,15 +61,7 @@
                 <h1>Kiểm Tra Nhận Thức & Đánh Giá Kỹ Năng</h1>
                 <p>Hệ thống câu hỏi trắc nghiệm khách quan đa chủ đề, phản hồi kết quả và cung cấp căn cứ tâm lý, quy tắc trường học ngay sau mỗi câu trả lời.</p>
             </div>
-            <div class="hero-actions">
-                <button class="btn-green-solid"><i class="fas fa-plus"></i> Bổ sung câu hỏi</button>
-                <div class="hero-tabs">
-                    <button class="hero-tab active">Làm bài kiểm tra</button>
-                    <button class="hero-tab">Báo cáo theo lớp</button>
-                    <button class="hero-tab">Quản trị ngân hàng (6)</button>
-                </div>
-            </div>
-        </section>
+            </section>
 
         <!-- Filters Bar -->
         <div class="filter-bar-full">
@@ -223,6 +215,18 @@
                 <div class="exp-deep"><div class="exp-deep-toggle"><i class="fas fa-book-open"></i> Mở rộng phân tích sâu <i class="fas fa-chevron-down"></i></div><div class="exp-deep-body" style="display:none;">Nội dung mở rộng...</div></div>
             </div>
             <div class="qc-footer"><div class="qc-tags"><span class="text-muted">Thẻ: Đoàn kết, Trách nhiệm</span></div><button class="btn-blue-solid next-q-btn" style="display:none;">Hoàn thành bài kiểm tra <i class="fas fa-check"></i></button></div>
+        </div>
+        <!-- Result Summary -->
+        <div class="question-card" id="q-result" style="display:none; text-align: center; padding: 50px 20px;">
+            <i class="fas fa-trophy" style="font-size: 70px; color: #f59e0b; margin-bottom: 20px;"></i>
+            <h2 style="color: #1e3a8a; margin-bottom: 15px; font-family: 'Times New Roman', Times, serif; font-size: 28px;">Hoàn Thành Bài Kiểm Tra!</h2>
+            <p style="font-size: 16px; color: #475569; margin-bottom: 20px;">Chúc mừng em đã xuất sắc hoàn thành bộ câu hỏi Đánh giá Kỹ năng & Nhận thức phòng chống bạo lực học đường.</p>
+            <div style="font-size: 26px; font-weight: bold; color: #10b981; margin-bottom: 30px; background: #ecfdf5; display: inline-block; padding: 15px 30px; border-radius: 12px; border: 2px solid #34d399;">
+                Điểm số của em: <span id="final-score">0</span> / 60
+            </div>
+            <div>
+                <button class="btn-blue-solid" onclick="location.reload()" style="display: inline-flex; justify-content: center;">Làm lại bài kiểm tra <i class="fas fa-redo"></i></button>
+            </div>
         </div></div>
     <footer class="site-footer">
         <div class="footer-container">
@@ -268,9 +272,11 @@
             </div>
         </div>
     </footer>
-    <script src="script.js?v=147"></script>
+    <script src="script.js?v=148"></script>
 </body>
 </html>
+
+
 
 
 
