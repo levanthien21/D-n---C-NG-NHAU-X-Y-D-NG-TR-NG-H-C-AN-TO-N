@@ -458,33 +458,42 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+                // Keep track of which situations have granted XP
+        const xpEarned = new Set();
+
         // Handle answer selection
-        situations.forEach(sit => {
+        situations.forEach((sit, index) => {
             const correctAns = sit.querySelector('.options-list').getAttribute('data-correct');
             const options = sit.querySelectorAll('input[type="radio"]');
             
             options.forEach(radio => {
                 radio.addEventListener('change', (e) => {
-                    // Disable all options in this situation
-                    sit.querySelectorAll('.option-item').forEach(item => item.classList.add('disabled'));
+                    // Remove previous styling
+                    sit.querySelectorAll('.option-item').forEach(item => {
+                        item.classList.remove('correct', 'incorrect');
+                    });
                     
                     const selectedItem = e.target.closest('.option-item');
                     const selectedVal = e.target.value;
                     
                     if (selectedVal === correctAns) {
                         selectedItem.classList.add('correct');
-                        totalXP += 100;
-                        if(xpValue) xpValue.textContent = totalXP + ' / 500 XP';
-                        showToast('✅ Lựa chọn tuyệt vời! Em được cộng 100 Điểm Rèn Luyện.');
+                        
+                        // Grant XP only once per situation
+                        if (!xpEarned.has(index)) {
+                            xpEarned.add(index);
+                            totalXP += 100;
+                            if(xpValue) xpValue.textContent = totalXP + ' / 500 XP';
+                            showToast('✅ Lựa chọn tuyệt vời! Em được cộng 100 Điểm Rèn Luyện.');
+                        } else {
+                            showToast('✅ Lựa chọn chính xác!');
+                        }
                     } else {
                         selectedItem.classList.add('incorrect');
-                        // Highlight correct one
-                        sit.querySelector(input[value=" + correctAns + "]).closest('.option-item').classList.add('correct');
-                        showToast('❌ Lựa chọn chưa an toàn. Hãy xem lại phương án màu xanh nhé!');
+                        showToast('❌ Lựa chọn chưa an toàn. Hãy suy nghĩ lại nhé!');
                     }
                 });
             });
         });
     }
 });
-
