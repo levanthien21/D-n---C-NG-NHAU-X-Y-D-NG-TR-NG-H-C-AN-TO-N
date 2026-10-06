@@ -527,7 +527,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             window.addEventListener('mouseup', () => { isDragging = false; });
-        });
         }
 
                 // Keep track of which situations have granted XP
@@ -569,5 +568,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
