@@ -401,3 +401,89 @@ document.addEventListener('DOMContentLoaded', () => {
     attachToastClick('.qc-actions .btn-icon:not(.text-red)', '✏ Hệ thống: Mở công cụ chỉnh sửa câu hỏi...');
     attachToastClick('.qc-actions .text-red', '❌ Cảnh báo: Cần quyền Quản trị để Xóa câu hỏi!');
 });
+
+// =========================================
+// SITUATIONS PAGE LOGIC
+// =========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const tabBtns = document.querySelectorAll('.tabs-left .tab-btn');
+    const situations = document.querySelectorAll('.situation-main');
+    const nextBtn = document.getElementById('next-sit-btn');
+    const xpValue = document.querySelector('.xp-value');
+    let currentSit = 1;
+    let totalXP = 0;
+
+    if (tabBtns.length > 0 && situations.length > 0) {
+        
+        function showSituation(index) {
+            // Update tabs
+            tabBtns.forEach((btn, i) => {
+                if (i === index - 1) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+            
+            // Update content
+            situations.forEach((sit, i) => {
+                if (i === index - 1) sit.style.display = 'block';
+                else sit.style.display = 'none';
+            });
+            
+            currentSit = index;
+            
+            // Hide next button if last situation
+            if (currentSit === 5) {
+                nextBtn.innerHTML = 'Hoàn thành bài tập <i class="fas fa-check"></i>';
+            } else {
+                nextBtn.innerHTML = 'Tình huống kế tiếp <i class="fas fa-arrow-right"></i>';
+            }
+        }
+
+        // Tab click
+        tabBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                showSituation(index + 1);
+            });
+        });
+
+        // Next button click
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentSit < 5) {
+                    showSituation(currentSit + 1);
+                    window.scrollTo({top: 300, behavior: 'smooth'});
+                } else {
+                    showToast('🎉 Chúc mừng! Em đã hoàn thành toàn bộ 5 tình huống!');
+                }
+            });
+        }
+
+        // Handle answer selection
+        situations.forEach(sit => {
+            const correctAns = sit.querySelector('.options-list').getAttribute('data-correct');
+            const options = sit.querySelectorAll('input[type="radio"]');
+            
+            options.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    // Disable all options in this situation
+                    sit.querySelectorAll('.option-item').forEach(item => item.classList.add('disabled'));
+                    
+                    const selectedItem = e.target.closest('.option-item');
+                    const selectedVal = e.target.value;
+                    
+                    if (selectedVal === correctAns) {
+                        selectedItem.classList.add('correct');
+                        totalXP += 100;
+                        if(xpValue) xpValue.textContent = totalXP + ' / 500 XP';
+                        showToast('✅ Lựa chọn tuyệt vời! Em được cộng 100 Điểm Rèn Luyện.');
+                    } else {
+                        selectedItem.classList.add('incorrect');
+                        // Highlight correct one
+                        sit.querySelector(input[value=" + correctAns + "]).closest('.option-item').classList.add('correct');
+                        showToast('❌ Lựa chọn chưa an toàn. Hãy xem lại phương án màu xanh nhé!');
+                    }
+                });
+            });
+        });
+    }
+});
