@@ -369,3 +369,35 @@ document.addEventListener('DOMContentLoaded', () => {
     attachToastClick('.btn-warning-large', '🛡 Hệ thống: Chuyển hướng an toàn đến Biểu mẫu Báo cáo bí mật...');
     attachToastClick('.eco-link', '📚 Hệ thống: Đang chuyển đến chuyên mục tương ứng...');
 });
+
+// Additional Button Interactions for New Pages
+document.addEventListener('DOMContentLoaded', () => {
+    function attachToastClick(selector, message) {
+        document.querySelectorAll(selector).forEach(el => {
+            el.addEventListener('click', (e) => {
+                if(e.target.tagName !== 'INPUT') { // Don't block radio buttons
+                    e.preventDefault();
+                    showToast(message);
+                }
+            });
+        });
+    }
+
+    // Situations Page
+    attachToastClick('.tab-btn', '🔄 Đang chuyển sang tình huống khác...');
+    attachToastClick('.btn-outline-blue', '✏ Hệ thống: Mở công cụ chỉnh sửa tình huống...');
+    attachToastClick('.btn-outline-red', '❌ Cảnh báo: Cần quyền Quản trị để Xóa tình huống!');
+    attachToastClick('.toggle-btn', '🔄 Đang xoay mô hình 3D của Cô Tổng phụ trách...');
+    attachToastClick('.msg-link', '🔊 Đang bật chế độ phát âm thanh Song ngữ...');
+    attachToastClick('.btn-outline-red-full', '🚨 Đang mở kết nối khẩn cấp đến Đường dây nóng 111!');
+    attachToastClick('.expand-header', '📖 Đang mở rộng nội dung Phân tích đa chiều...');
+    attachToastClick('.situation-footer .btn-blue-solid', '⏩ Đang chuyển sang Tình huống kế tiếp...');
+    attachToastClick('.situation-footer .btn-text-blue', '💬 Đang gửi yêu cầu tư vấn đến Cô Tổng phụ trách AI...');
+
+    // Question Bank Page
+    attachToastClick('.hero-tab', '📊 Đang chuyển đổi giao diện bảng điều khiển...');
+    attachToastClick('.filter-pill', '🔍 Đang lọc danh sách câu hỏi theo Khối lớp...');
+    attachToastClick('.qc-footer .btn-blue-solid', '✅ Đã ghi nhận câu trả lời! Đang chấm điểm...');
+    attachToastClick('.qc-actions .btn-icon:not(.text-red)', '✏ Hệ thống: Mở công cụ chỉnh sửa câu hỏi...');
+    attachToastClick('.qc-actions .text-red', '❌ Cảnh báo: Cần quyền Quản trị để Xóa câu hỏi!');
+});
