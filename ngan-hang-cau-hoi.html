@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ngân Hàng Câu Hỏi - Cùng Nhau Xây Dựng Trường Học An Toàn</title>
-    <link rel="stylesheet" href="style.css?v=144">
+    <link rel="stylesheet" href="style.css?v=147">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="questions-page">
@@ -89,52 +89,141 @@
             </div>
         </div>
 
-        <!-- Question Card -->
-        <div class="question-card">
+                <!-- Question 1 -->
+        <div class="question-card" id="q-1">
             <div class="qc-header">
                 <div class="qc-badges">
                     <span class="badge-blue-light">Kiến thức chung</span>
-                    <span class="badge-gray">Áp dụng: Khối Toàn trường</span>
-                </div>
-                <div class="qc-actions lib-card-actions" style="display: none;">
-                    <button class="btn-icon"><i class="fas fa-pen"></i></button>
-                    <button class="btn-icon text-red"><i class="fas fa-trash"></i></button>
+                    <span class="badge-gray">Áp dụng: Toàn trường</span>
                 </div>
             </div>
-
             <h3 class="question-title">Theo quy định của ngành giáo dục, hành vi nào dưới đây được coi là bạo lực học đường?</h3>
-
-            <div class="options-list">
-                <label class="option-item">
-                    <div class="option-letter">A</div>
-                    <div class="option-text">Hành vi hành hạ, ngược đãi, đánh đập; xâm hại thân thể, sức khỏe.</div>
-                    <input type="radio" name="q1" value="A">
-                </label>
-                <label class="option-item">
-                    <div class="option-letter">B</div>
-                    <div class="option-text">Lăng mạ, xúc phạm danh dự, nhân phẩm; cô lập, xua đuổi.</div>
-                    <input type="radio" name="q1" value="B">
-                </label>
-                <label class="option-item">
-                    <div class="option-letter">C</div>
-                    <div class="option-text">Cưỡng ép, đe dọa mang tính quấy rối tinh thần hoặc qua mạng xã hội.</div>
-                    <input type="radio" name="q1" value="C">
-                </label>
-                <label class="option-item">
-                    <div class="option-letter">D</div>
-                    <div class="option-text">Cả A, B và C đều đúng.</div>
-                    <input type="radio" name="q1" value="D">
-                </label>
+            <div class="options-list" data-correct="D">
+                <label class="option-item"><div class="option-letter">A</div><div class="option-text">Hành vi hành hạ, ngược đãi, đánh đập; xâm hại thân thể, sức khỏe.</div><input type="radio" name="q1" value="A"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">B</div><div class="option-text">Lăng mạ, xúc phạm danh dự, nhân phẩm; cô lập, xua đuổi.</div><input type="radio" name="q1" value="B"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">C</div><div class="option-text">Cưỡng ép, đe dọa mang tính quấy rối tình thần hoặc qua mạng xã hội.</div><input type="radio" name="q1" value="C"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">D</div><div class="option-text">Cả A, B và C đều đúng.</div><input type="radio" name="q1" value="D"><div class="option-icon"><i class="fas"></i></div></label>
             </div>
-
-            <div class="qc-footer">
-                <div class="qc-tags">
-                    <span class="text-muted">Thẻ: Khái niệm, Quy định</span>
+            <div class="explanation-box" style="display:none;">
+                <div class="exp-title"><i class="fas fa-info-circle"></i> <span></span></div>
+                <div class="exp-content"><strong>Giải thích:</strong> Bạo lực học đường được định nghĩa bao hàm cả bạo lực thể xác, bạo lực tinh thần, bạo lực ngôn ngữ và bạo lực trên môi trường mạng.</div>
+                <div class="exp-deep">
+                    <div class="exp-deep-toggle"><i class="fas fa-book-open"></i> Thu gọn phân tích sâu <i class="fas fa-chevron-up"></i></div>
+                    <div class="exp-deep-body">
+                        <strong>Cơ sở tâm lý học đường:</strong> Các hành vi xâm phạm nhân phẩm hoặc cô lập bạn học phản ánh nhận thức lệch chuẩn cần được uốn nắn thông qua phương pháp kỷ luật tích cực.<br><br>
+                        <strong>Khuyến nghị hành động từ Cô Tổng phụ trách AI:</strong> Khi gặp các tình huống tương tự trong đời thực, hãy nhớ quy tắc: Bình tĩnh - Không đối đầu trực diện một mình - Báo cáo ngay cho cô giáo chủ nhiệm hoặc đường dây nóng 111.
+                    </div>
                 </div>
-                <button class="btn-blue-solid">Xác nhận câu trả lời</button>
+            </div>
+            <div class="qc-footer">
+                <div class="qc-tags"><span class="text-muted">Thẻ: Khái niệm, Quy định</span></div>
+                <button class="btn-blue-solid next-q-btn" style="display:none;">Câu hỏi kế tiếp <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
-    </div>
+
+        <!-- Question 2 -->
+        <div class="question-card" id="q-2" style="display:none;">
+            <div class="qc-header">
+                <div class="qc-badges">
+                    <span class="badge-blue-light">Bắt nạt trên mạng</span>
+                    <span class="badge-gray">Áp dụng: Khối 5</span>
+                </div>
+            </div>
+            <h3 class="question-title">Khi bạn là nạn nhân của hành vi bắt nạt qua mạng (Cyberbullying), bước đầu tiên em cần làm là gì?</h3>
+            <div class="options-list" data-correct="B">
+                <label class="option-item"><div class="option-letter">A</div><div class="option-text">Đăng bài lên mạng chửi bới lại kẻ bắt nạt để xả giận.</div><input type="radio" name="q2" value="A"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">B</div><div class="option-text">Chụp màn hình lưu lại bằng chứng tin nhắn/bình luận độc hại.</div><input type="radio" name="q2" value="B"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">C</div><div class="option-text">Xóa tài khoản mạng xã hội và không kể cho bất kỳ ai.</div><input type="radio" name="q2" value="C"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">D</div><div class="option-text">Nhắn tin năn nỉ kẻ bắt nạt dừng lại.</div><input type="radio" name="q2" value="D"><div class="option-icon"><i class="fas"></i></div></label>
+            </div>
+            <div class="explanation-box" style="display:none;">
+                <div class="exp-title"><i class="fas fa-info-circle"></i> <span></span></div>
+                <div class="exp-content"><strong>Giải thích:</strong> Chụp lại bằng chứng có đầy đủ thời gian và nội dung là cơ sở pháp lý và chứng cứ quan trọng nhất để nhà trường và cơ quan chức năng bảo vệ em.</div>
+                <div class="exp-deep">
+                    <div class="exp-deep-toggle"><i class="fas fa-book-open"></i> Thu gọn phân tích sâu <i class="fas fa-chevron-up"></i></div>
+                    <div class="exp-deep-body">
+                        <strong>Cơ sở tâm lý học đường:</strong> Các hành vi xâm phạm nhân phẩm...
+                        <br><br><strong>Khuyến nghị hành động từ Cô Tổng phụ trách AI:</strong> Khi gặp các tình huống tương tự trong đời thực, hãy nhớ quy tắc...
+                    </div>
+                </div>
+            </div>
+            <div class="qc-footer">
+                <div class="qc-tags"><span class="text-muted">Thẻ: Mạng xã hội, Tư bảo vệ</span></div>
+                <button class="btn-blue-solid next-q-btn" style="display:none;">Câu hỏi kế tiếp <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-card" id="q-3" style="display:none;">
+            <div class="qc-header"><div class="qc-badges"><span class="badge-blue-light">Kỹ năng tìm kiếm trợ giúp</span><span class="badge-gray">Áp dụng: Toàn trường</span></div></div>
+            <h3 class="question-title">Tổng đài Quốc gia Bảo vệ Trẻ em Việt Nam có đầu số là bao nhiêu?</h3>
+            <div class="options-list" data-correct="A">
+                <label class="option-item"><div class="option-letter">A</div><div class="option-text">111 (Hoàn toàn miễn phí, trực 24/7).</div><input type="radio" name="q3" value="A"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">B</div><div class="option-text">115.</div><input type="radio" name="q3" value="B"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">C</div><div class="option-text">19001000.</div><input type="radio" name="q3" value="C"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">D</div><div class="option-text">112.</div><input type="radio" name="q3" value="D"><div class="option-icon"><i class="fas"></i></div></label>
+            </div>
+            <div class="explanation-box" style="display:none;">
+                <div class="exp-title"><i class="fas fa-info-circle"></i> <span></span></div>
+                <div class="exp-content"><strong>Giải thích:</strong> Tổng đài 111 là số điện thoại quốc gia tiếp nhận tin báo, hỗ trợ bảo vệ trẻ em và thanh thiếu niên 24/7 hoàn toàn miễn phí cước gọi.</div>
+                <div class="exp-deep"><div class="exp-deep-toggle"><i class="fas fa-book-open"></i> Mở rộng phân tích sâu <i class="fas fa-chevron-down"></i></div><div class="exp-deep-body" style="display:none;">Nội dung mở rộng...</div></div>
+            </div>
+            <div class="qc-footer"><div class="qc-tags"><span class="text-muted">Thẻ: Đường dây nóng, Khẩn cấp</span></div><button class="btn-blue-solid next-q-btn" style="display:none;">Câu hỏi kế tiếp <i class="fas fa-arrow-right"></i></button></div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-card" id="q-4" style="display:none;">
+            <div class="qc-header"><div class="qc-badges"><span class="badge-blue-light">Trách nhiệm học sinh</span></div></div>
+            <h3 class="question-title">Hành vi "đứng xem, cổ vũ, quay video clip đánh nhau rồi đăng lên mạng" có bị xử lý kỷ luật không?</h3>
+            <div class="options-list" data-correct="C">
+                <label class="option-item"><div class="option-letter">A</div><div class="option-text">Không bị xử lý vì người đó không trực tiếp ra tay đánh bạn.</div><input type="radio" name="q4" value="A"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">B</div><div class="option-text">Chỉ bị nhắc nhở nhẹ nhàng nếu quay bằng điện thoại cá nhân.</div><input type="radio" name="q4" value="B"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">C</div><div class="option-text">Có bị xử lý kỷ luật nghiêm khắc vì hành vi tiếp tay, kích động và vi phạm đạo đức học đường.</div><input type="radio" name="q4" value="C"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">D</div><div class="option-text">Được khen thưởng vì giúp lưu lại clip làm bằng chứng.</div><input type="radio" name="q4" value="D"><div class="option-icon"><i class="fas"></i></div></label>
+            </div>
+            <div class="explanation-box" style="display:none;">
+                <div class="exp-title"><i class="fas fa-info-circle"></i> <span></span></div>
+                <div class="exp-content"><strong>Giải thích:</strong> Cổ vũ và phát tán video bạo lực là hành vi tiếp tay cho bạo lực học đường, xâm phạm quyền riêng tư và bị xử lý kỷ luật theo quy định của Bộ GD&ĐT.</div>
+                <div class="exp-deep"><div class="exp-deep-toggle"><i class="fas fa-book-open"></i> Mở rộng phân tích sâu <i class="fas fa-chevron-down"></i></div><div class="exp-deep-body" style="display:none;">Nội dung mở rộng...</div></div>
+            </div>
+            <div class="qc-footer"><div class="qc-tags"><span class="text-muted">Thẻ: Kỷ luật, Trách nhiệm</span></div><button class="btn-blue-solid next-q-btn" style="display:none;">Câu hỏi kế tiếp <i class="fas fa-arrow-right"></i></button></div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question-card" id="q-5" style="display:none;">
+            <div class="qc-header"><div class="qc-badges"><span class="badge-blue-light">Kiểm soát cảm xúc</span></div></div>
+            <h3 class="question-title">Khi nhận thấy bản thân đang bùng phát cơn tức giận trong một cuộc tranh cãi với bạn bè, kỹ thuật nào sau đây giúp kiểm soát cảm xúc tốt nhất?</h3>
+            <div class="options-list" data-correct="A">
+                <label class="option-item"><div class="option-letter">A</div><div class="option-text">Áp dụng quy tắc "Dừng 10 giây", hít thở sâu bằng bụng và tạm thời lùi lại một bước.</div><input type="radio" name="q5" value="A"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">B</div><div class="option-text">Nói thật to để át giọng đối phương nhằm giành chiến thắng.</div><input type="radio" name="q5" value="B"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">C</div><div class="option-text">Đập vỡ một đồ vật để giải tỏa cơn ức chế.</div><input type="radio" name="q5" value="C"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">D</div><div class="option-text">Bỏ đi và rủ bạn bè mang vũ khí đến đối đầu.</div><input type="radio" name="q5" value="D"><div class="option-icon"><i class="fas"></i></div></label>
+            </div>
+            <div class="explanation-box" style="display:none;">
+                <div class="exp-title"><i class="fas fa-info-circle"></i> <span></span></div>
+                <div class="exp-content"><strong>Giải thích:</strong> Hít thở sâu và dừng 10 giây giúp kích hoạt hệ thần kinh phó giao cảm, giảm nhịp tim và ngăn ngừa hành động thiếu suy nghĩ khi vùng vỏ não chưa kịp phân tích.</div>
+                <div class="exp-deep"><div class="exp-deep-toggle"><i class="fas fa-book-open"></i> Mở rộng phân tích sâu <i class="fas fa-chevron-down"></i></div><div class="exp-deep-body" style="display:none;">Nội dung mở rộng...</div></div>
+            </div>
+            <div class="qc-footer"><div class="qc-tags"><span class="text-muted">Thẻ: Cảm xúc, Kỹ năng sống</span></div><button class="btn-blue-solid next-q-btn" style="display:none;">Câu hỏi kế tiếp <i class="fas fa-arrow-right"></i></button></div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question-card" id="q-6" style="display:none;">
+            <div class="qc-header"><div class="qc-badges"><span class="badge-blue-light">Xây dựng trường học an toàn</span></div></div>
+            <h3 class="question-title">Học sinh cần làm gì để đóng góp vào việc xây dựng một trường học an toàn và hạnh phúc?</h3>
+            <div class="options-list" data-correct="B">
+                <label class="option-item"><div class="option-letter">A</div><div class="option-text">Chỉ quan tâm đến việc học của mình, không xen vào chuyện của người khác.</div><input type="radio" name="q6" value="A"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">B</div><div class="option-text">Đoàn kết, giúp đỡ bạn bè và dũng cảm báo cáo ngay khi phát hiện hành vi bắt nạt.</div><input type="radio" name="q6" value="B"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">C</div><div class="option-text">Lập thành các băng nhóm nhỏ để tự bảo vệ lẫn nhau.</div><input type="radio" name="q6" value="C"><div class="option-icon"><i class="fas"></i></div></label>
+                <label class="option-item"><div class="option-letter">D</div><div class="option-text">Im lặng chịu đựng nếu bị trêu chọc để không gây rắc rối cho bản thân.</div><input type="radio" name="q6" value="D"><div class="option-icon"><i class="fas"></i></div></label>
+            </div>
+            <div class="explanation-box" style="display:none;">
+                <div class="exp-title"><i class="fas fa-info-circle"></i> <span></span></div>
+                <div class="exp-content"><strong>Giải thích:</strong> Trường học an toàn cần sự chung tay của tất cả học sinh thông qua tình đoàn kết và sự lên tiếng kịp thời khi thấy cái xấu.</div>
+                <div class="exp-deep"><div class="exp-deep-toggle"><i class="fas fa-book-open"></i> Mở rộng phân tích sâu <i class="fas fa-chevron-down"></i></div><div class="exp-deep-body" style="display:none;">Nội dung mở rộng...</div></div>
+            </div>
+            <div class="qc-footer"><div class="qc-tags"><span class="text-muted">Thẻ: Đoàn kết, Trách nhiệm</span></div><button class="btn-blue-solid next-q-btn" style="display:none;">Hoàn thành bài kiểm tra <i class="fas fa-check"></i></button></div>
+        </div></div>
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-col brand-col">
@@ -179,9 +268,12 @@
             </div>
         </div>
     </footer>
-    <script src="script.js?v=145"></script>
+    <script src="script.js?v=147"></script>
 </body>
 </html>
+
+
+
 
 
 

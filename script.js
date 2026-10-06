@@ -625,3 +625,99 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// =========================================
+// QUESTION BANK LOGIC
+// =========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const qCards = document.querySelectorAll('.question-card');
+    if (qCards.length === 6) {
+        let currentQ = 1;
+        let score = 0;
+        const scoreDisplay = document.querySelector('.stat-text strong[style="color: #f59e0b;"]');
+        const qCountDisplay = document.querySelector('.stat-text strong'); // the first strong is '1 / 6'
+        const qXPSet = new Set();
+
+        qCards.forEach((card, index) => {
+            const correctAns = card.querySelector('.options-list').getAttribute('data-correct');
+            const options = card.querySelectorAll('input[type="radio"]');
+            const expBox = card.querySelector('.explanation-box');
+            const expTitle = card.querySelector('.exp-title span');
+            const expTitleIcon = card.querySelector('.exp-title i');
+            const nextBtn = card.querySelector('.next-q-btn');
+
+            // Deep analysis toggle
+            const deepToggle = card.querySelector('.exp-deep-toggle');
+            const deepBody = card.querySelector('.exp-deep-body');
+            if (deepToggle && deepBody) {
+                deepToggle.addEventListener('click', () => {
+                    const icon = deepToggle.querySelector('.fa-chevron-up, .fa-chevron-down');
+                    if (deepBody.style.display === 'none') {
+                        deepBody.style.display = 'block';
+                        icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                    } else {
+                        deepBody.style.display = 'none';
+                        icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                    }
+                });
+            }
+
+            options.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    // Lock options after first selection
+                    card.querySelectorAll('.option-item').forEach(item => {
+                        item.style.pointerEvents = 'none';
+                        item.classList.remove('correct', 'incorrect');
+                    });
+
+                    const selectedItem = e.target.closest('.option-item');
+                    const selectedVal = e.target.value;
+                    
+                    expBox.style.display = 'block';
+                    nextBtn.style.display = 'inline-flex';
+
+                    if (selectedVal === correctAns) {
+                        selectedItem.classList.add('correct');
+                        selectedItem.querySelector('.option-icon i').className = 'fas fa-check-circle';
+                        expTitle.textContent = 'Chính xác! (+ 10 điểm)';
+                        expTitle.parentElement.style.color = '#10b981';
+                        
+                        if (!qXPSet.has(index)) {
+                            qXPSet.add(index);
+                            score += 10;
+                            if (scoreDisplay) scoreDisplay.textContent = score + ' / 60';
+                        }
+                    } else {
+                        selectedItem.classList.add('incorrect');
+                        selectedItem.querySelector('.option-icon i').className = 'fas fa-times-circle';
+                        expTitle.textContent = 'Chưa chính xác! Đáp án đúng là ' + correctAns;
+                        expTitle.parentElement.style.color = '#ca8a04';
+                        
+                        // Highlight correct answer implicitly
+                        const correctItem = card.querySelector('input[value="' + correctAns + '"]').closest('.option-item');
+                        correctItem.classList.add('correct');
+                        correctItem.querySelector('.option-icon i').className = 'fas fa-check-circle';
+                    }
+                });
+            });
+
+            // Next button
+            if (nextBtn) {
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (currentQ < 6) {
+                        card.style.display = 'none';
+                        qCards[currentQ].style.display = 'block';
+                        currentQ++;
+                        // Update progress text
+                        const stats = document.querySelectorAll('.stat-text strong');
+                        if(stats.length > 0) stats[0].textContent = currentQ + ' / 6';
+                        window.scrollTo({top: 250, behavior: 'smooth'});
+                    } else {
+                        showToast('🎉 Chúc mừng! Bạn đã hoàn thành toàn bộ bài kiểm tra!');
+                    }
+                });
+            }
+        });
+    }
+});
