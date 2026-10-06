@@ -444,7 +444,7 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .shield-icon {
     background: #3b82f6;
@@ -698,7 +698,7 @@ body {
     border-radius: 16px;
     padding: 15px;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .outfit-title {
     color: #1e3a8a;
@@ -951,7 +951,7 @@ body {
     border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .value-icon.yellow { background: #fef08a; color: #a16207; }
 .value-icon.green { background: #bbf7d0; color: #15803d; }
@@ -2034,12 +2034,12 @@ body {
 .library-hero {
     background: #1e1b4b; /* Deep indigo/navy */
     border-radius: 16px;
-    padding: 40px;
+    padding: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .lib-hero-content {
     max-width: 700px;
@@ -2047,7 +2047,7 @@ body {
 .lib-hero-badges {
     display: flex;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .badge-blue-outline {
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -2105,7 +2105,7 @@ body {
 .search-bar-row {
     display: flex;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .search-input-wrapper {
     flex: 1;
@@ -2238,7 +2238,7 @@ body {
     font-size: 12px;
     font-weight: 600;
     display: inline-block;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .lib-card-meta {
     font-size: 12px;
@@ -2262,7 +2262,7 @@ body {
     font-size: 14px;
     color: #475569;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .lib-skills {
     margin-bottom: 30px;
@@ -2490,12 +2490,12 @@ body {
 .page-hero {
     background: #0f172a;
     border-radius: 20px;
-    padding: 40px;
+    padding: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .hero-content {
     flex: 1;
@@ -2610,7 +2610,7 @@ body {
     flex: 1;
     background: white;
     border-radius: 20px;
-    padding: 40px;
+    padding: 25px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     border: 1px solid #f1f5f9;
 }
@@ -2649,27 +2649,27 @@ body {
     font-size: 16px;
     color: #334155;
     line-height: 1.7;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .question-prompt {
     font-size: 15px;
     color: #475569;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .options-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 8px;
+    margin-bottom: 15px;
 }
 .option-item {
     display: flex;
     align-items: center;
     border: 1px solid #e2e8f0;
-    padding: 20px;
+    padding: 12px;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.2s;
@@ -2705,7 +2705,7 @@ body {
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     background: #f8fafc;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .expand-header {
     padding: 15px 20px;
@@ -2931,7 +2931,7 @@ body {
     padding: 15px 25px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .filter-left {
     display: flex;
@@ -3034,4 +3034,5 @@ body {
     pointer-events: none;
     opacity: 0.7;
 }
+
 

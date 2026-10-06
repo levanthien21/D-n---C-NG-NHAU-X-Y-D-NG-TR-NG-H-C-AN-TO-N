@@ -445,6 +445,42 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+                // Toggle Expanded Analysis Panel
+        const expandHeaders = document.querySelectorAll('.expand-header');
+        expandHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const panel = header.closest('.expandable-panel');
+                const body = panel.querySelector('.expand-body');
+                const icon = header.querySelector('.fa-chevron-down');
+                if (body) {
+                    if (body.style.display === 'none') {
+                        body.style.display = 'block';
+                        icon.style.transform = 'rotate(180deg)';
+                        header.style.background = '#f1f5f9';
+                    } else {
+                        body.style.display = 'none';
+                        icon.style.transform = 'rotate(0deg)';
+                        header.style.background = 'transparent';
+                    }
+                }
+            });
+        });
+
+        // AI Avatar Rotation
+        const aiAvatarImg = document.querySelector('.ai-avatar-circle img');
+        const toggleBtns = document.querySelectorAll('.ai-toggles .toggle-btn');
+        if (aiAvatarImg && toggleBtns.length > 0) {
+            const views = ['avatar_front.jpg', 'avatar_back.jpg', 'avatar_full.jpg'];
+            toggleBtns.forEach((btn, index) => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    aiAvatarImg.src = views[index];
+                    toggleBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+        }
+
         // Next button click
         if (nextBtn) {
             nextBtn.addEventListener('click', (e) => {
@@ -497,3 +533,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
