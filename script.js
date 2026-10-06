@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
     attachToastClick('.btn-outline-red-full', '🚨 Đang mở kết nối khẩn cấp đến Đường dây nóng 111!');
     attachToastClick('.expand-header', '📖 Đang mở rộng nội dung Phân tích đa chiều...');
     attachToastClick('.situation-footer .btn-blue-solid', '⏩ Đang chuyển sang Tình huống kế tiếp...');
-    attachToastClick('.situation-footer .btn-text-blue', '💬 Đang gửi yêu cầu tư vấn đến Cô Tổng phụ trách AI...');
+    
 
     // Question Bank Page
     attachToastClick('.hero-tab', '📊 Đang chuyển đổi giao diện bảng điều khiển...');
@@ -466,32 +466,68 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // AI Avatar Rotation
+                // AI Avatar Rotation with 360 support
         const aiAvatarImg = document.querySelector('.ai-avatar-circle img');
+        const aiAvatarCircle = document.querySelector('.ai-avatar-circle');
         const toggleBtns = document.querySelectorAll('.ai-toggles .toggle-btn');
-        if (aiAvatarImg && toggleBtns.length > 0) {
-            const views = ['avatar_front.jpg', 'avatar_back.jpg', 'avatar_full.jpg'];
-            toggleBtns.forEach((btn, index) => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    aiAvatarImg.src = views[index];
-                    toggleBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                });
-            });
-        }
+        if (aiAvatarImg && toggleBtns.length > 0 && aiAvatarCircle) {
+            let is360Mode = false;
+            let isDragging = false;
+            let startX = 0;
+            let currentFrame = 0;
 
-        // Next button click
-        if (nextBtn) {
-            nextBtn.addEventListener('click', (e) => {
+            toggleBtns[0].addEventListener('click', (e) => {
                 e.preventDefault();
-                if (currentSit < 5) {
-                    showSituation(currentSit + 1);
-                    window.scrollTo({top: 300, behavior: 'smooth'});
-                } else {
-                    showToast('🎉 Chúc mừng! Em đã hoàn thành toàn bộ 5 tình huống!');
+                is360Mode = false;
+                aiAvatarImg.style.cursor = 'default';
+                aiAvatarImg.src = 'avatar_front.jpg';
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                toggleBtns[0].classList.add('active');
+            });
+
+            toggleBtns[1].addEventListener('click', (e) => {
+                e.preventDefault();
+                is360Mode = false;
+                aiAvatarImg.style.cursor = 'default';
+                aiAvatarImg.src = 'avatar_back.jpg';
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                toggleBtns[1].classList.add('active');
+            });
+
+            toggleBtns[2].addEventListener('click', (e) => {
+                e.preventDefault();
+                is360Mode = true;
+                currentFrame = 0;
+                aiAvatarImg.style.cursor = 'ew-resize';
+                aiAvatarImg.src = 'frame_0.jpg';
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                toggleBtns[2].classList.add('active');
+                showToast('↔️ Chế độ Xoay 360: Hãy nhấn giữ và vuốt chuột sang hai bên để xoay Cô Tổng phụ trách!');
+            });
+
+            aiAvatarCircle.addEventListener('mousedown', (e) => {
+                if (!is360Mode) return;
+                isDragging = true;
+                startX = e.clientX;
+                e.preventDefault();
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging || !is360Mode) return;
+                const deltaX = e.clientX - startX;
+                if (Math.abs(deltaX) > 25) {
+                    if (deltaX > 0) {
+                        currentFrame = (currentFrame - 1 + 4) % 4;
+                    } else {
+                        currentFrame = (currentFrame + 1) % 4;
+                    }
+                    aiAvatarImg.src = 'frame_' + currentFrame + '.jpg';
+                    startX = e.clientX;
                 }
             });
+
+            window.addEventListener('mouseup', () => { isDragging = false; });
+        });
         }
 
                 // Keep track of which situations have granted XP
@@ -533,4 +569,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
