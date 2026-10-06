@@ -90,48 +90,92 @@
 
         <div class="situation-layout">
             <!-- Left Content -->
-            <div class="situation-main">
+<div class="situation-content-column" style="flex: 1;">
+            <!-- Tình huống 1 -->
+            <div class="situation-main" id="sit-1">
                 <div class="situation-header-info">
-                    <span class="tag-pill active">Bạo lực tinh thần & Body shaming</span>
+                    <span class="tag-pill active" style="background: #e0f2fe; color: #0369a1;">Bạo lực tinh thần & Body-shaming</span>
                     <span class="risk-level">Mức độ nguy cơ: <strong style="color: #f59e0b;">Trung bình</strong></span>
                 </div>
-
                 <h2 class="situation-title">Tình huống 1: Một nhóm học sinh chế giễu ngoại hình bạn trong lớp</h2>
-                
-                <div class="situation-context">
-                    <i class="fas fa-compass"></i>
-                    <strong>Bối cảnh:</strong> Phòng học lớp 5, giờ ra chơi giữa tiết 2 và tiết 3
-                </div>
-
-                <p class="situation-desc">
-                    Trong giờ ra chơi, một nhóm 3-4 bạn nam trong lớp đứng ở cửa lớp, liên tục chỉ tay vào bạn Lan (nữ sinh rụt rè) và dùng những từ ngữ miệt thị ngoại hình, cân nặng của bạn. Cả nhóm cười cợt ầm ĩ khiến Lan bật khóc, gục mặt xuống bàn.
-                </p>
-
+                <div class="situation-context"><i class="fas fa-compass"></i><strong>Bối cảnh:</strong> Phòng học lớp 5, giờ ra chơi giữa tiết 2 và tiết 3</div>
+                <p class="situation-desc">Trong giờ ra chơi, một nhóm 3-4 bạn nam trong lớp đứng ở cửa lớp, liên tục chỉ tay vào bạn Lan (nữ sinh rụt rè) và dùng những từ ngữ miệt thị ngoại hình, cân nặng của bạn. Cả nhóm cười cợt ầm ĩ khiến Lan bật khóc, gục mặt xuống bàn.</p>
                 <h3 class="question-prompt">EM SẼ LỰA CHỌN CÁCH XỬ LÝ NÀO?</h3>
-
-                <div class="options-list">
-                    <label class="option-item">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">Đến bên cạnh Lan, an ủi bạn, đưa khăn giấy và nói rõ ràng với nhóm kia: "Các bạn đừng làm vậy nữa, trêu chọc như vậy là làm bạn buồn đấy". Sau đó cùng Lan báo với cô giáo chủ nhiệm.</div>
-                        <input type="radio" name="situation1" value="A">
-                    </label>
-                    <label class="option-item">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">Đứng ngoài cửa hùa theo cười lớn để không bị nhóm bạn nam kia coi là lập dị.</div>
-                        <input type="radio" name="situation1" value="B">
-                    </label>
-                    <label class="option-item">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">Cầm ghế hoặc đồ vật lao vào đánh nhóm bạn nam để dạy cho họ một bài học.</div>
-                        <input type="radio" name="situation1" value="C">
-                    </label>
-                    <label class="option-item">
-                        <div class="option-letter">D</div>
-                        <div class="option-text">Lặng lẽ làm bài tập của mình, coi như không nghe thấy gì vì nghĩ "Lan không phải bạn thân của mình".</div>
-                        <input type="radio" name="situation1" value="D">
-                    </label>
+                <div class="options-list" data-correct="A">
+                    <label class="option-item"><div class="option-letter">A</div><div class="option-text">Đến bên cạnh Lan, an ủi bạn, đưa khăn giấy và nói rõ ràng với nhóm kia: "Các bạn dừng lại đi, trêu chọc như vậy là xúc phạm bạn đấy". Sau đó cùng Lan báo với cô giáo chủ nhiệm.</div><input type="radio" name="sit1" value="A"></label>
+                    <label class="option-item"><div class="option-letter">B</div><div class="option-text">Đứng ngoài cửa hùa theo cười lớn để không bị nhóm bạn nam kia coi là lập dị.</div><input type="radio" name="sit1" value="B"></label>
+                    <label class="option-item"><div class="option-letter">C</div><div class="option-text">Cầm ghế hoặc đồ vật lao vào đánh nhóm bạn nam để dạy cho họ một bài học.</div><input type="radio" name="sit1" value="C"></label>
+                    <label class="option-item"><div class="option-letter">D</div><div class="option-text">Lặng lẽ làm bài tập của mình, coi như không nghe thấy gì vì nghĩ "Lan không phải bạn thân của mình".</div><input type="radio" name="sit1" value="D"></label>
                 </div>
+            </div>
 
+            <!-- Tình huống 2 -->
+            <div class="situation-main" id="sit-2" style="display: none;">
+                <div class="situation-header-info">
+                    <span class="tag-pill active" style="background: #f3e8ff; color: #7e22ce;">Cô lập xã hội & Không gian mạng</span>
+                    <span class="risk-level">Mức độ nguy cơ: <strong style="color: #10b981;">Thấp</strong></span>
+                </div>
+                <h2 class="situation-title">Tình huống 2: Học sinh bị cô lập khỏi nhóm chat học tập chung</h2>
+                <div class="situation-context"><i class="fas fa-compass"></i><strong>Bối cảnh:</strong> Nhóm học tập trực tuyến và giờ sinh hoạt lớp</div>
+                <p class="situation-desc">Lớp chuẩn bị làm bài tập dự án nhóm tính điểm học kỳ. Minh phát hiện mình bị kick (mời ra khỏi) nhóm Zalo của lớp một cách vô cớ. Khi Minh hỏi các bạn trong nhóm tổ thì mọi người viện cớ "đủ người rồi" và thì thầm to nhỏ lảng tránh Minh.</p>
+                <h3 class="question-prompt">EM SẼ LỰA CHỌN CÁCH XỬ LÝ NÀO?</h3>
+                <div class="options-list" data-correct="A">
+                    <label class="option-item"><div class="option-letter">A</div><div class="option-text">Chủ động gặp riêng bạn nhóm trưởng hoặc lớp phó học tập để hỏi lý do văn minh, nếu tiếp tục bị cô lập thì gặp trực tiếp giáo viên bộ môn nhờ phân chia lại nhóm.</div><input type="radio" name="sit2" value="A"></label>
+                    <label class="option-item"><div class="option-letter">B</div><div class="option-text">Đăng status lên Facebook chửi bới cả lớp là đạo đức giả và thách thức nhau ra cổng trường giải quyết.</div><input type="radio" name="sit2" value="B"></label>
+                    <label class="option-item"><div class="option-letter">C</div><div class="option-text">Tự trách bản thân mình kém cỏi, bỏ học không làm bài tập và chấp nhận nhận điểm 0.</div><input type="radio" name="sit2" value="C"></label>
+                </div>
+            </div>
+
+            <!-- Tình huống 3 -->
+            <div class="situation-main" id="sit-3" style="display: none;">
+                <div class="situation-header-info">
+                    <span class="tag-pill active" style="background: #fee2e2; color: #ef4444;">An ninh mạng & Xâm phạm đời tư</span>
+                    <span class="risk-level">Mức độ nguy cơ: <strong style="color: #ef4444;">Nghiêm trọng</strong></span>
+                </div>
+                <h2 class="situation-title">Tình huống 3: Một đoạn video riêng tư vô tình bị quay lén và phát tán</h2>
+                <div class="situation-context"><i class="fas fa-compass"></i><strong>Bối cảnh:</strong> Không gian mạng học đường và hành lang lớp học</div>
+                <p class="situation-desc">Bạn Trang bị một tài khoản ẩn danh quay lén khoảnh khắc thay trang phục thể thao hoặc khóc lóc trong góc khuất rồi đăng vào một group kín kèm những bình luận ác ý. Đoạn video đã có hơn 500 lượt xem và nhiều bạn trong trường đang bàn tán xôn xao.</p>
+                <h3 class="question-prompt">EM SẼ LỰA CHỌN CÁCH XỬ LÝ NÀO?</h3>
+                <div class="options-list" data-correct="A">
+                    <label class="option-item"><div class="option-letter">A</div><div class="option-text">Nhanh chóng chụp lại màn hình link bài viết, bình luận làm bằng chứng; không bấm chia sẻ lại clip; hướng dẫn Trang đến phòng tư vấn tâm lý và báo ngay cho Ban Giám Hiệu can thiệp khẩn cấp.</div><input type="radio" name="sit3" value="A"></label>
+                    <label class="option-item"><div class="option-letter">B</div><div class="option-text">Chia sẻ video cho nhóm bạn thân xem và bình luận phỏng đoán xem ai là người quay lén.</div><input type="radio" name="sit3" value="B"></label>
+                    <label class="option-item"><div class="option-letter">C</div><div class="option-text">Khuyên Trang trốn học về nhà và tự giải quyết bằng cách nhắn tin năn nỉ tài khoản ẩn danh gỡ bài.</div><input type="radio" name="sit3" value="C"></label>
+                </div>
+            </div>
+
+            <!-- Tình huống 4 -->
+            <div class="situation-main" id="sit-4" style="display: none;">
+                <div class="situation-header-info">
+                    <span class="tag-pill active" style="background: #fee2e2; color: #ef4444;">Bạo lực thể chất nguy hiểm</span>
+                    <span class="risk-level">Mức độ nguy cơ: <strong style="color: #ef4444;">Nghiêm trọng</strong></span>
+                </div>
+                <h2 class="situation-title">Tình huống 4: Chứng kiến bạn bị nhóm người ngoài trường đe dọa đánh hội đồng</h2>
+                <div class="situation-context"><i class="fas fa-compass"></i><strong>Bối cảnh:</strong> Ngõ phụ ngoài cổng trường, thời điểm sau tan học</div>
+                <p class="situation-desc">Sau giờ tan học, tại ngõ vắng cách cổng trường 100m, em thấy bạn Tuấn lớp bên bị một nhóm 5 thanh thiếu niên mặc áo khoác đen chặn xe đạp, cầm theo mũ bảo hiểm đe dọa chuẩn bị lao vào đánh hội đồng.</p>
+                <h3 class="question-prompt">EM SẼ LỰA CHỌN CÁCH XỬ LÝ NÀO?</h3>
+                <div class="options-list" data-correct="A">
+                    <label class="option-item"><div class="option-letter">A</div><div class="option-text">Lập tức chạy ngược về phía cổng trường hô hoán các chú bảo vệ, các thầy cô giám thị và gọi điện đường dây nóng công an khu vực / 113 ứng cứu.</div><input type="radio" name="sit4" value="A"></label>
+                    <label class="option-item"><div class="option-letter">B</div><div class="option-text">Một mình lao vào giữa vòng vây để đánh trả bảo vệ bạn.</div><input type="radio" name="sit4" value="B"></label>
+                    <label class="option-item"><div class="option-letter">C</div><div class="option-text">Lấy điện thoại livestream lên mạng kêu gọi mọi người vào xem đông vui.</div><input type="radio" name="sit4" value="C"></label>
+                </div>
+            </div>
+
+            <!-- Tình huống 5 -->
+            <div class="situation-main" id="sit-5" style="display: none;">
+                <div class="situation-header-info">
+                    <span class="tag-pill active" style="background: #ffedd5; color: #f97316;">Mâu thuẫn bộc phát & Kiểm soát cảm xúc</span>
+                    <span class="risk-level">Mức độ nguy cơ: <strong style="color: #f59e0b;">Trung bình</strong></span>
+                </div>
+                <h2 class="situation-title">Tình huống 5: Mâu thuẫn khi chơi thể thao dẫn đến lời nói xúc phạm, khiêu khích</h2>
+                <div class="situation-context"><i class="fas fa-compass"></i><strong>Bối cảnh:</strong> Sân bóng đá trường học, đông học sinh theo dõi</div>
+                <p class="situation-desc">Trong trận bóng đá giao hữu giữa hai lớp 5, một pha va chạm bóng quyết liệt diễn ra. Bạn Hùng đội đối phương đứng dậy túm cổ áo em, văng tục và khiêu khích: "Mày mù à? Có tin tao đập cho mày một trận không?". Khán giả xung quanh bắt đầu hò reo "Đánh đi, đánh đi!".</p>
+                <h3 class="question-prompt">EM SẼ LỰA CHỌN CÁCH XỬ LÝ NÀO?</h3>
+                <div class="options-list" data-correct="A">
+                    <label class="option-item"><div class="option-letter">A</div><div class="option-text">Giữ hai tay mở rộng tự vệ (không nắm đấm), hít một hơi thật sâu, nhìn thẳng vào mắt Hùng với giọng bình tĩnh: "Đó là pha tranh bóng thể thao, bạn bình tĩnh lại đã". Sau đó ra dấu cho trọng tài và thầy giáo thể dục can thiệp.</div><input type="radio" name="sit5" value="A"></label>
+                    <label class="option-item"><div class="option-letter">B</div><div class="option-text">Lập tức đấm thẳng vào mặt Hùng để chứng tỏ mình không sợ ai.</div><input type="radio" name="sit5" value="B"></label>
+                    <label class="option-item"><div class="option-letter">C</div><div class="option-text">Nín nhịn lúc đó nhưng hẹn anh em lớp mình sau giờ tan học ra cổng sau "tính sổ" sau lưng thầy cô.</div><input type="radio" name="sit5" value="C"></label>
+                </div>
+            </div>
                 <div class="expandable-panel">
                     <div class="expand-header">
                         <span><i class="fas fa-eye"></i> Mở Rộng Phân Tích Đa Chiều (Nạn Nhân • Kẻ Bắt Nạt • Người Chứng Kiến)</span>
@@ -141,10 +185,9 @@
 
                 <div class="situation-footer">
                     <a href="#" class="btn-text-blue"><i class="far fa-comment-dots"></i> Hỏi Cô Tổng phụ trách AI cách hóa giải tình huống này</a>
-                    <button class="btn-blue-solid">Tình huống kế tiếp <i class="fas fa-arrow-right"></i></button>
+                    <button class="btn-blue-solid" id="next-sit-btn">Tình huống kế tiếp <i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
-
             <!-- Right Sidebar -->
             <div class="situation-sidebar">
                 <div class="ai-advisor-card">
@@ -228,4 +271,5 @@
     <script src="script.js?v=138"></script>
 </body>
 </html>
+
 
