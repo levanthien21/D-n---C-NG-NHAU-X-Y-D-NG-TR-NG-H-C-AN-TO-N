@@ -335,21 +335,29 @@
             setTimeout(() => toast.classList.remove('show'), 4000);
         }
 
-        function refreshChat() {
-            // Copy /reset to clipboard
-            navigator.clipboard.writeText('/reset').then(() => {
-                showToast('✅ Đã copy lệnh! Hãy ấn vào ô chat, Dán (Ctrl + V) và Gửi đi nhé.');
-            }).catch(err => {
-                showToast('❌ Vui lòng tự gõ lệnh "/reset" vào ô chat và Gửi.');
-            });
-            
+                function refreshChat() {
             // Visual feedback
             const btn = document.querySelector('.btn-refresh i');
-            btn.classList.add('fa-spin');
-            setTimeout(() => btn.classList.remove('fa-spin'), 1000);
+            if(btn) {
+                btn.classList.add('fa-spin');
+                setTimeout(() => btn.classList.remove('fa-spin'), 1000);
+            }
+
+            // Create new session ID for AI backend
+            aiSessionId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+            localStorage.setItem('ai_session_id', aiSessionId);
+
+            // Clear chat but keep the first initial greeting
+            const chatMessages = document.querySelector('.chat-messages');
+            if (chatMessages && chatMessages.children.length > 0) {
+                const firstMsg = chatMessages.firstElementChild.cloneNode(true);
+                chatMessages.innerHTML = '';
+                chatMessages.appendChild(firstMsg);
+            }
+
+            showToast('🔄 Đã làm mới phiên trò chuyện!');
         }
 
-        // Speech Synthesis for Greeting using ResponsiveVoice (Guaranteed Female Voice)
         function playGreeting() {
             // Visual feedback
             const btn = document.querySelector('.quote-voice');
@@ -561,6 +569,7 @@
     <div class="toast-notification" id="toast"></div>
 </body>
 </html>
+
 
 
 
