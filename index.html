@@ -373,6 +373,30 @@
         }
 
         // Fallback in case offline
+                function playVoice(lang, btn) {
+            const originalBg = btn.style.background;
+            btn.style.background = '#dbeafe';
+            setTimeout(() => { btn.style.background = originalBg; }, 300);
+            
+            let text = "";
+            if(lang === 'vi') {
+                text = "Chào em! Cô là Cô Tổng phụ trách AI – Liên đội Trường Tiểu học Hồng Phong, kiêm Trợ lý ảo tư vấn tâm lý học đường AI. Cô luôn ở đây để lắng nghe em trong một không gian an toàn, tôn trọng và không phán xét. Hôm nay em đang có điều gì băn khoăn hay cần cô đồng hành không?";
+                if(typeof responsiveVoice !== 'undefined') responsiveVoice.speak(text, "Vietnamese Female");
+                else fallbackTTS(text);
+            } else {
+                text = "Hello! I am AI Pioneer Counselor of Hong Phong Primary School and your AI school counselor. I am always here to listen to you in a safe, respectful, and non-judgmental space. Do you have any concerns or need my support today?";
+                if(typeof responsiveVoice !== 'undefined') responsiveVoice.speak(text, "UK English Female");
+                else {
+                    if ('speechSynthesis' in window) {
+                        window.speechSynthesis.cancel();
+                        const utterance = new SpeechSynthesisUtterance(text);
+                        utterance.lang = 'en-GB';
+                        window.speechSynthesis.speak(utterance);
+                    }
+                }
+            }
+        }
+
         function fallbackTTS(fullText) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
@@ -410,6 +434,7 @@
     <div class="toast-notification" id="toast"></div>
 </body>
 </html>
+
 
 
 
